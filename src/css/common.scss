@@ -1,0 +1,7 @@
+@import "language/ko";
+
+@include fontname('NotoSansKR', 'NotoSansKR-Regular', '/dependency/fonts/', 400);
+@include fontname('NotoSansKR', 'NotoSansKR-Bold', '/dependency/fonts/', 500);
+
+@include common();
+@include common_options-position();

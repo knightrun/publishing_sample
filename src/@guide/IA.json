@@ -1,0 +1,77 @@
+{
+	"guideGnb" : [
+		{
+			"link" : "/@guide/basic/basic.html",
+			"text" : "기본가이드"
+		},
+		{
+			"link" : "/@guide/sample/list_donghyun.html",
+			"text" : "샘플페이지"
+		},
+		{
+			"link" : "/@guide/other/list_donghyun.html",
+			"text" : "기타페이지"
+		}
+	],
+
+
+	"guideMenu" : {
+
+		"menu0" : [
+			{
+				"link" : "/@guide/basic/basic.html",
+				"text" : "공통가이드",
+				"iconClass" : "fab fa-accusoft"
+			},
+			{
+				"link" : "/@guide/basic/folder.html",
+				"iconClass" : "fas fa-folder",
+				"text" : "폴더구조"
+			},
+			{
+				"link" : "/@guide/basic/role.html",
+				"iconClass" : "fas fa-code",
+				"text" : "작성규칙"
+			},
+			{
+				"link" : "/@guide/basic/webfont.html",
+				"iconClass" : "fas fa-bold",
+				"text" : "웹폰트"
+			}
+		],
+
+        "menu1" : [
+            {
+                "link" : "/@guide/terms-and-conditions/list.html",
+                "text" : "약관 리스트",
+                "iconClass" : "fas fa-list"
+            }
+        ],
+
+		"menu2" : [
+			{
+				"link" : "/@guide/other/list_donghyun.html",
+				"text" : "동현",
+				"iconClass" : "fas fa-at"
+			},
+			{
+				"link" : "/@guide/other/list_sowon.html",
+				"text" : "소원",
+				"iconClass" : "fas fa-at"
+			}
+		],
+
+		"menu3" : [
+			{
+				"link" : "/@guide/sample/list_donghyun.html",
+				"text" : "동현",
+				"iconClass" : "fas fa-list"
+			},
+			{
+				"link" : "/@guide/sample/list_sowon.html",
+				"text" : "소원",
+				"iconClass" : "fas fa-list"
+			}
+		]
+	}
+}

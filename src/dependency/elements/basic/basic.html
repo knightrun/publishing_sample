@@ -1,0 +1,21 @@
+{% macro h2() %}
+    <div class="text-container">
+        <h2>{{ caller() }}</h2>
+    </div>
+{% endmacro %}
+
+{% macro make() %}
+    <div class="components">
+        <div class="inner">
+            <strong>macro</strong>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro make2() %}
+    <div class="components">
+        <div class="inner">
+            {{ caller() }}
+        </div>
+    </div>
+{% endmacro %}
