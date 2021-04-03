@@ -22,14 +22,6 @@
 }
 
 #main{
-    @include vw('padding-left',10px, $mob-s);
-    @include vw('padding-righte',10px, $mob-s);
-    @include vw('padding-top',10px, $mob-s);
-    @include vw('padding-bottom',10px, $mob-s);
-
-    @include breakpoint($point: tablet-l) {
-        padding: 20px;
-    }
 }
 
 .footer{

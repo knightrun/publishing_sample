@@ -1,0 +1,112 @@
+{% extends "html/layout/layout.html" %}
+
+{% block content %}
+    <h1 class="sample__title">가상 키보드</h1>
+
+    <section class="virtual-phone">
+        <div class="inner">
+            <div class="screen--out">
+                <h2>휴대폰 번호 입력</h2>
+            </div>
+            <form id="phoneInputForm" name="phoneInputForm" method="post" action="">
+                <fieldset>
+                    <legend class="screen--out">휴대폰 번호 입력</legend>
+                </fieldset>
+                <div class="text__area">
+                    <p>휴대폰 번호를 입력하신 후 <em>[다음]</em> 버튼을 눌러주세요.</p>
+                </div>
+                <div class="input__area">
+                    <input type="text" class="o-input phone__field" value="" placeholder="전화번호 입력" title="휴대폰 번호 입력창" readonly>
+                    <input type="hidden" id="phoneNum" value="">
+                </div>
+                <div class="button__area button__list">
+                    <button class="btn" data-num="1">1</button>
+                    <button class="btn" data-num="2">2</button>
+                    <button class="btn" data-num="3">3</button>
+                    <button class="btn" data-num="4">4</button>
+                    <button class="btn" data-num="5">5</button>
+                    <button class="btn" data-num="6">6</button>
+                    <button class="btn" data-num="7">7</button>
+                    <button class="btn" data-num="8">8</button>
+                    <button class="btn" data-num="9">9</button>
+                    <button class="btn" data-clear="all">다시쓰기</button>
+                    <button class="btn" data-num="0">0</button>
+                    <button class="btn" data-clear="one">삭제</button>
+                </div>
+                <button class="check__button" data-btn="next">다음</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+      $(function(){
+        var phoneNum = '',
+          $btns = $('[data-num]'),
+          $clearBtns = $('[data-clear]'),
+          $field = $('.phone__field'),
+          $input = $('#phoneNum');
+
+        var filter = function(num) {
+          var number = num.replace(/[^0-9]/g, ""),
+            tel = "";
+
+          if(number.length < 4) {
+            return number;
+          } else if(number.length < 7) {
+            tel += number.substr(0, 3);
+            tel += " - ";
+            tel += number.substr(3);
+          } else if(number.length < 11) {
+            tel += number.substr(0, 3);
+            tel += " - ";
+            tel += number.substr(3, 3);
+            tel += " - ";
+            tel += number.substr(6);
+          } else {
+            tel += number.substr(0, 3);
+            tel += " - ";
+            tel += number.substr(3, 4);
+            tel += " - ";
+            tel += number.substr(7);
+          }
+
+          return tel;
+        };
+
+        $btns.on('click', function(e){
+          var $this = $(this);
+          if(phoneNum.length < 11){
+            phoneNum = phoneNum + $this.data('num');
+          }
+
+          $field.val(filter(phoneNum));
+          $input.val(phoneNum);
+
+          e.preventDefault();
+          e.stopPropagation();
+        });
+
+        $clearBtns.on('click', function(e){
+          var $this = $(this),
+            status = $this.data('clear');
+
+          if(status === 'all'){
+            phoneNum = '';
+            $field.val('');
+            $input.val('');
+          }else{
+            if(phoneNum.length > 0){
+              phoneNum = phoneNum.substr(0, phoneNum.length -1);
+              $field.val(filter(phoneNum));
+              $input.val(phoneNum);
+            }
+          }
+
+          e.preventDefault();
+          e.stopPropagation();
+        });
+      });
+    </script>
+{% endblock %}

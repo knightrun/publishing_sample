@@ -1,0 +1,140 @@
+@import "language/ko";
+
+.sample {
+    &__title {
+        display: block;
+        padding:15px;
+        background-color: #343a40;
+        font-size:24px;
+        font-weight:bold;
+        color:#fff;
+
+        &--case {
+            padding:15px;
+            font-size:20px;
+            background-color: #e2e2e2;
+            color:#0f0f0f;
+            border-top: 1px solid #909294;
+            border-bottom: 1px solid #909294;
+        }
+    }
+
+    &__notice {
+        background-color: rgba(0,0,0,.03);
+        padding:15px;
+        font-size:18px;
+    }
+
+    &__guide {
+        li {
+            position: relative;
+            padding-left: 10px;
+            margin-top: 10px;
+            &:before {
+                content:'-';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color:#000;
+            }
+        }
+    }
+
+    &__code {
+        padding:30px 0;
+    }
+}
+
+.virtual-phone{
+    text-align: center;
+    .text__area{
+        @include vw('margin-top',76px, $desktop-s);
+    }
+
+    p{
+        font-weight: 500;
+        text-align: center;
+        &:first-child{
+            @include vw('font-size',38px, $desktop-s);
+        }
+
+        &:last-child{
+            @include vw('margin-top',28px, $desktop-s);
+            @include vw('font-size',32px, $desktop-s);
+        }
+        em{
+            font-weight: 500;
+            color:#222;
+        }
+    }
+
+    .input__area{
+        @include vw('margin-top',68px, $desktop-s);
+        text-align: center;
+
+        input{
+            text-align: center;
+            font-weight: 500;
+            @include vw('font-size',60px, $desktop-s);
+            @include vw('padding-bottom',15px, $desktop-s);
+            @include vw('padding-left',20px, $desktop-s);
+            @include vw('padding-right',20px, $desktop-s);
+            @include vw('width',550px, $desktop-s);
+            border-bottom:2px solid #222;
+            @include vw('border-width',4px, $desktop-s);
+        }
+    }
+
+    .button__area{
+        @include vw('width',648px, $desktop-s);
+        margin:0 auto;
+    }
+
+    .button__list{
+        border:2px solid #e0e0e0;
+        @include vw('border-width',2px, $desktop-s);
+        @include vw('margin-top',50px, $desktop-s);
+
+        button{
+            font-weight: 500;
+            float:left;
+            width:33.333%;
+            @include vw('font-size',38px, $desktop-s);
+            @include vw('padding-top',28px, $desktop-s);
+            @include vw('padding-bottom',28px, $desktop-s);
+            border-left:2px solid #e0e0e0;
+            border-bottom:2px solid #e0e0e0;
+            @include vw('border-width',2px, $desktop-s);
+
+            &:nth-child(3n + 1){
+                border-left:none;
+            }
+
+            &:nth-child(n + 10){
+                border-bottom: none;
+            }
+        }
+
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+}
+
+[data-btn="next"]{
+    font-weight: 500;
+    @include vw('width',648px, $desktop-s);
+    @include vw('margin-top',60px, $desktop-s);
+    @include vw('margin-bottom',60px, $desktop-s);
+    background-color: #222;
+    color:#fff;
+    @include vw('font-size',32px, $desktop-s);
+    @include vw('padding-top',30px, $desktop-s);
+    @include vw('padding-bottom',30px, $desktop-s);
+    @include vw('padding-left',25px, $desktop-s);
+    @include vw('padding-right',25px, $desktop-s);
+    border-radius: 2px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}

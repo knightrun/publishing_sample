@@ -1,0 +1,138 @@
+.sample__title {
+	display: block;
+	padding: 15px;
+	background-color: #343a40;
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.sample__title--case {
+	padding: 15px;
+	font-size: 20px;
+	background-color: #e2e2e2;
+	color: #0f0f0f;
+	border-top: 1px solid #909294;
+	border-bottom: 1px solid #909294;
+}
+
+.sample__notice {
+	background-color: rgba(0, 0, 0, 0.03);
+	padding: 15px;
+	font-size: 18px;
+}
+
+.sample__guide li {
+	position: relative;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+
+.sample__guide li:before {
+	content: '-';
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #000;
+}
+
+.sample__code {
+	padding: 30px 0;
+}
+
+.virtual-phone {
+	text-align: center;
+}
+
+.virtual-phone .text__area {
+	margin-top: 5.94vw;
+}
+
+.virtual-phone p {
+	font-weight: 500;
+	text-align: center;
+}
+
+.virtual-phone p:first-child {
+	font-size: 2.97vw;
+}
+
+.virtual-phone p:last-child {
+	margin-top: 2.19vw;
+	font-size: 2.5vw;
+}
+
+.virtual-phone p em {
+	font-weight: 500;
+	color: #222;
+}
+
+.virtual-phone .input__area {
+	margin-top: 5.31vw;
+	text-align: center;
+}
+
+.virtual-phone .input__area input {
+	text-align: center;
+	font-weight: 500;
+	font-size: 4.69vw;
+	padding-bottom: 1.17vw;
+	padding-left: 1.56vw;
+	padding-right: 1.56vw;
+	width: 42.97vw;
+	border-bottom: 2px solid #222;
+	border-width: 0.31vw;
+}
+
+.virtual-phone .button__area {
+	width: 50.63vw;
+	margin: 0 auto;
+}
+
+.virtual-phone .button__list {
+	border: 2px solid #e0e0e0;
+	border-width: 0.16vw;
+	margin-top: 3.91vw;
+}
+
+.virtual-phone .button__list button {
+	font-weight: 500;
+	float: left;
+	width: 33.333%;
+	font-size: 2.97vw;
+	padding-top: 2.19vw;
+	padding-bottom: 2.19vw;
+	border-left: 2px solid #e0e0e0;
+	border-bottom: 2px solid #e0e0e0;
+	border-width: 0.16vw;
+}
+
+.virtual-phone .button__list button:nth-child(3n + 1) {
+	border-left: none;
+}
+
+.virtual-phone .button__list button:nth-child(n + 10) {
+	border-bottom: none;
+}
+
+.virtual-phone .button__list:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+[data-btn="next"] {
+	font-weight: 500;
+	width: 50.63vw;
+	margin-top: 4.69vw;
+	margin-bottom: 4.69vw;
+	background-color: #222;
+	color: #fff;
+	font-size: 2.5vw;
+	padding-top: 2.34vw;
+	padding-bottom: 2.34vw;
+	padding-left: 1.95vw;
+	padding-right: 1.95vw;
+	border-radius: 2px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
