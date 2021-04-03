@@ -1,0 +1,113 @@
+{% extends "html/layout/layout.html" %}
+
+{% import "dependency/elements/rating/rating.html" as rating %}
+
+{% macro bookList( obj ) %}
+    <div class="book__list">
+        <ul class="{% if obj.type == "type2" %}list-{{ obj.align }}--{{ obj.type }}{% else %}list-{{ obj.align }}{% endif %}">
+            {% for item in obj.list %}
+                <li>
+                    <a href="{{ item.link }}">
+                        <figure>
+                            <div class="thumb">
+                                <div class="thumb__img">
+                                    <img src="{{ item.src }}" alt="">
+                                    {% if obj.label %}
+                                        <span class="label"># {{ loop.index }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <figcaption {% if item.recommend %}class="resize"{% endif %}>
+                                <strong class="tit">{{ item.tit }}</strong>
+                                <span class="desc{% if item.details %} arrow{% endif %}">{{ item.desc }}</span>
+                                {% if item.rating %}
+                                    {{ rating.make("view") }}
+                                {% endif %}
+                                {% if item.date %}
+                                    <time class="date">{{ item.date }}</time>
+                                    {% elif item.count %}
+                                    <span class="count" data-count="{{ item.count }}">{{ item.count }}</span>
+                                {% endif %}
+                                {% if item.details %}
+                                    <span class="details">{{ item.details }}</span>
+                                {% endif %}
+                                {% if item.recommend %}
+                                    <button type="button" data-btn="recommend">{{ item.recommend }}</button>
+                                {% endif %}
+                            </figcaption>
+                        </figure>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}
+
+{% block content %}
+    <h1 class="sample__title">Book List</h1>
+    <div class="sample__notice">
+        <ul class="sample__guide">
+            <li>여러가지 타입의 도서 리스트 샘플</li>
+        </ul>
+    </div>
+    {{ bookList(list_7) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {{ bookList(list_6) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {{ bookList(list_1) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {{ bookList(list_2) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {{ bookList(list_3) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {{ bookList(list_4) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {{ bookList(list_5) }}
+{%- endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+    </script>
+{% endblock %}

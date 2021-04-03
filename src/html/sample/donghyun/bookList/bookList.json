@@ -1,0 +1,560 @@
+{
+    "page" : "sample",
+    "page_title": "book_list",
+    "layout" : {
+        "header": false,
+        "footer": false,
+        "class_container": "",
+        "class_main": "main",
+        "class_inner": "inner"
+    },
+    "list_7" : {
+        "type" : "type2",
+        "align" : "vertical",
+        "list" : [
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "1. 타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "count" : "0",
+                "recommend" : "추천"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "2. 타이틀 2",
+                "desc" : "작가 2",
+                "count" : "150",
+                "recommend" : "추천"
+            }
+        ]
+    },
+    "list_6" : {
+        "type" : "type2",
+        "align" : "vertical",
+        "list" : [
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "1. 타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "count" : "0",
+                "details" : "자세히 보기"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "2. 타이틀 2",
+                "desc" : "작가 2",
+                "count" : "150",
+                "details" : "자세히 보기"
+            }
+        ]
+    },
+    "list_1" : {
+        "align" : "horizontal",
+        "list" : [
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "date" : "2019-05-19"
+            }
+        ]
+    },
+    "list_2" : {
+        "align" : "vertical",
+        "list" : [
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "date" : "2019-05-19"
+            }
+        ]
+    },
+    "list_3" : {
+        "align" : "vertical",
+        "list" : [
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "date" : "2019-05-19"
+            }
+        ]
+    },
+    "list_4" : {
+        "align" : "vertical",
+        "list" : [
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "count" : "0"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "count" : "0"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "count" : "150"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "count" : "150"
+            }
+        ]
+    },
+    "list_5" : {
+        "align" : "vertical",
+        "list" : [
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book1.jpg",
+                "tit" : "타이틀 1 타이틀 1 타이틀 1 타이틀 1",
+                "desc" : "작가 1",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book6.jpg",
+                "tit" : "타이틀 2",
+                "desc" : "작가 2",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book2.jpg",
+                "tit" : "작가 3",
+                "desc" : "욜로",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book3.jpg",
+                "tit" : "타이틀 4",
+                "desc" : "작가 4",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/book4.jpg",
+                "tit" : "타이틀 5",
+                "desc" : "작가 5",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            },
+            {
+                "link" : "",
+                "src" : "./images/empty.jpg",
+                "tit" : "타이틀 6",
+                "desc" : "작가 6",
+                "rating" : "3",
+                "date" : "2019-05-19"
+            }
+        ]
+    }
+}
