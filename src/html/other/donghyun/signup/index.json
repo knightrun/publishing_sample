@@ -1,5 +1,5 @@
 {
-    "page_title": "기타",
+    "page_title": "회원가입",
     "progress" : "완료",
     "remarks" : "비고",
     "category" : "기타 > 기타",
@@ -10,5 +10,5 @@
         "class_main": "main",
         "class_inner": "inner"
     },
-    "content" : "other"
+    "content" : "signup"
 }

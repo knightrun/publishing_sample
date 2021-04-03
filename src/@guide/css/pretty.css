@@ -172,12 +172,12 @@ li.L9 {
 .work-count {
 	position: absolute;
 	right:0;
-	top:5px;
+	top:-20px;
 	font-size: 16px;
 }
 
 .pat30 {
-	padding-top: 30px;
+	padding-top: 20px;
 }
 .work-tab { padding:20px 20px 0 20px; display: table; font-size:0;; }
 .work-tab ul li{ display: inline-block; }
@@ -188,7 +188,7 @@ li.L9 {
 /*.work-list { padding:20px; }*/
 .work-list {
 	position: relative;
-	padding-top: 30px;
+	padding-top: 10px;
 }
 .work-list table{ width:100%; border-collapse:collapse;}
 .work-list tr th{ font-weight:bold; background: #e2e2e2; }

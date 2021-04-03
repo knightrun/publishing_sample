@@ -1,0 +1,39 @@
+{% extends "html/layout/layout.html" %}
+
+{% block content %}
+    <section class="signup">
+        <div class="inner">
+            <div class="signup-tit">
+                <h2>회원가입</h2>
+            </div>
+            <form id="signupForm" name="signupForm" method="post" action="">
+                <fieldset>
+                    <legend class="screen--out">회원가입</legend>
+                </fieldset>
+                <div class="input__box">
+                    <div class="input__text">
+                        <label for="name" class="input__placeholder">이름</label>
+                        <input type="text" id="name" class="o-input" value="">
+                    </div>
+                    <div class="input__text">
+                        <label for="email" class="input__placeholder">이메일 주소</label>
+                        <input type="text" id="email" class="o-input" value="">
+                    </div>
+                    <div class="input__text">
+                        <label for="phone" class="input__placeholder">휴대폰번호 (-없이)</label>
+                        <input type="text" id="phone" class="o-input" value="">
+                    </div>
+                    <div class="input__text">
+                        <label for="password" class="input__placeholder">비밀번호 (숫자 6자리)</label>
+                        <input type="text" id="password" class="o-input" value="" maxlength="6">
+                    </div>
+                    <div class="checkbox__wrap">
+                        <input type="checkbox" id="signup_chk">
+                        <label for="signup_chk">개인정보이용정책 및 회원약관에 동의합니다.</label>
+                    </div>
+                    <button class="sign__button" data-btn="complate">완료</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{%- endblock %}

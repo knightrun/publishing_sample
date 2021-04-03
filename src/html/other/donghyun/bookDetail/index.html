@@ -1,0 +1,106 @@
+{% extends "html/layout/layout.html" %}
+
+{% import "dependency/elements/rating/rating.html" as rating %}
+{% import "dependency/elements/pagination/pagination.html" as pagination %}
+
+{% block content %}
+    <section class="info">
+        <div class="inner">
+            <div class="column">
+                <div class="column--left">
+                    <div class="info__poster">
+                        <img src="{{ details.src }}" alt="{{ details.alt }}">
+                    </div>
+                </div>
+                <div class="column--right">
+                    <div class="info__tit">
+                        <h2>{{ details.title }}</h2>
+                        <span class="author">{{ details.author }}</span>
+                        <!-- web 용 description-->
+                        <p class="only__web">{{ details.desc }}</p>
+                    </div>
+                    <div class="info__spec">
+                        <div class="step">
+                            <em>상황</em><span>총 6권</span>
+                        </div>
+                        <div class="step">
+                            <em>서가</em><span>본 1-6</span>
+                        </div>
+
+                        {{ rating.make("number") }}
+                    </div>
+                </div>
+            </div>
+            <!-- mobile 용 description-->
+            <div class="mobile__desc mobile__only toggle">
+                <p>{{ details.desc }}</p>
+                <button type="button" aria-expanded="false" data-status-text="펼치기|접기"><span class="screen--out">펼치기</span></button>
+            </div>
+            <div class="info__good" data-count="150"><span class="count">150</span> 명의 회원이 좋아합니다.</div>
+        </div>
+    </section>
+
+    <section class="review">
+        <div class="inner">
+            <div class="review__write">
+                <div class="row">
+                    {{ rating.make("event") }}
+                    <span class="text">이 작품, 어떠셨어요?</span>
+                </div>
+                <div class="row">
+                    <span class="input__placeholder">(0/140자)<br>이 작품의 입덕 포인트를 공유해 주세요.</span>
+                    <textarea class="o-input" name="" id="" cols="30" rows="10" maxlength="140"></textarea>
+                    <button type="button">완료</button>
+                </div>
+            </div>
+            <div class="review__count">
+                <span class="count">3</span>개의 별점리뷰
+            </div>
+            <div class="review__list">
+                <div class="row">
+                    <div class="row--top">
+                        {{ rating.make("view") }}
+                        <span class="review__name">
+                            민정님
+                        </span>
+                        <span class="review__date">2019-05-09</span>
+                    </div>
+                    <div class="row--bottom">
+                        <span class="review__text">
+                            재미없게보였지만, 보니까 재미있네용^^ 또 다시 보고싶네요.<br>
+                            이 글을 안보 것 같지만 별점 보다기는 칭찬을 주고싶고, 별점 평가를 하고 싶네
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row--top">
+                        {{ rating.make("view") }}
+                        <span class="review__name">
+                            창성님
+                        </span>
+                        <span class="review__date">2019-05-07</span>
+                    </div>
+                    <div class="row--bottom">
+                        <span class="review__text">
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row--top">
+                        {{ rating.make("view") }}
+                        <span class="review__name">
+                            한솔님
+                        </span>
+                        <span class="review__date">2019-05-06</span>
+                    </div>
+                    <div class="row--bottom">
+                        <span class="review__text">
+                            최고입니다.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {{ pagination.make(page_list) }}
+        </div>
+    </section>
+{%- endblock %}
