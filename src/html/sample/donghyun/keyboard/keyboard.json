@@ -1,0 +1,151 @@
+{
+    "page" : "sample",
+    "page_title": "accordion",
+    "layout" : {
+        "header": false,
+        "footer": false,
+        "class_container": "",
+        "class_main": "main",
+        "class_inner": "inner"
+    },
+    "keyboard" : {
+        "num": [1,2,3,4,5,6,7,8,9,0],
+        "txt": [
+            {
+                "ko": "ㅂ",
+                "ko_d": "ㅃ",
+                "en_s": "q",
+                "en_b": "Q"
+            },
+            {
+                "ko": "ㅈ",
+                "ko_d": "ㅉ",
+                "en_s": "w",
+                "en_b": "W"
+            },
+            {
+                "ko": "ㄷ",
+                "ko_d": "ㄸ",
+                "en_s": "e",
+                "en_b": "E"
+            },
+            {
+                "ko": "ㄱ",
+                "ko_d": "ㄲ",
+                "en_s": "r",
+                "en_b": "R"
+            },
+            {
+                "ko": "ㅅ",
+                "ko_d": "ㅆ",
+                "en_s": "t",
+                "en_b": "T"
+            },
+            {
+                "ko": "ㅛ",
+                "en_s": "y",
+                "en_b": "Y"
+            },
+            {
+                "ko": "ㅕ",
+                "en_s": "u",
+                "en_b": "U"
+            },
+            {
+                "ko": "ㅑ",
+                "en_s": "i",
+                "en_b": "I"
+            },
+            {
+                "ko": "ㅐ",
+                "en_s": "o",
+                "en_b": "O"
+            },
+            {
+                "ko": "ㅔ",
+                "en_s": "p",
+                "en_b": "P"
+            },
+            {
+                "ko": "ㅁ",
+                "en_s": "a",
+                "en_b": "A"
+            },
+            {
+                "ko": "ㄴ",
+                "en_s": "s",
+                "en_b": "S"
+            },
+            {
+                "ko": "ㅇ",
+                "en_s": "d",
+                "en_b": "D"
+            },
+            {
+                "ko": "ㄹ",
+                "en_s": "f",
+                "en_b": "F"
+            },
+            {
+                "ko": "ㅎ",
+                "en_s": "g",
+                "en_b": "G"
+            },
+            {
+                "ko": "ㅗ",
+                "en_s": "h",
+                "en_b": "H"
+            },
+            {
+                "ko": "ㅓ",
+                "en_s": "j",
+                "en_b": "J"
+            },
+            {
+                "ko": "ㅏ",
+                "en_s": "k",
+                "en_b": "K"
+            },
+            {
+                "ko": "ㅣ",
+                "en_s": "l",
+                "en_b": "L"
+            },
+            {
+                "ko": "ㅋ",
+                "en_s": "z",
+                "en_b": "Z"
+            },
+            {
+                "ko": "ㅌ",
+                "en_s": "x",
+                "en_b": "X"
+            },
+            {
+                "ko": "ㅊ",
+                "en_s": "c",
+                "en_b": "C"
+            },
+            {
+                "ko": "ㅍ",
+                "en_s": "v",
+                "en_b": "V"
+            },
+            {
+                "ko": "ㅠ",
+                "en_s": "b",
+                "en_b": "B"
+            },
+            {
+                "ko": "ㅜ",
+                "en_s": "n",
+                "en_b": "N"
+            },
+            {
+                "ko": "ㅡ",
+                "en_s": "m",
+                "en_b": "M"
+            }
+        ]
+    }
+}

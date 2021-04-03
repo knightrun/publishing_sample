@@ -57,7 +57,7 @@
 	top: 50%;
 	margin-top: -9px;
 	content: '';
-	background-image: url("images/ico-plus.png");
+	background-image: url("./images/ico-plus.png");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 }
@@ -68,7 +68,7 @@
 }
 
 .accordion-item__tit.is-active:after {
-	background-image: url("images/ico-minus.png");
+	background-image: url("./images/ico-minus.png");
 }
 
 .accordion-item__cont {

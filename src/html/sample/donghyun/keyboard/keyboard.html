@@ -1,0 +1,205 @@
+{% extends "html/layout/layout.html" %}
+
+{% macro searchForm(keyboard) %}
+    <form id="searchForm" name="searchForm" method="get" action="">
+        <fieldset>
+            <legend class="screen--out">검색</legend>
+        </fieldset>
+        <div class="search-bar">
+            <div class="search__box">
+                <div class="search__button">
+                    <button data-btn="search">
+                        <span class="screen--out">검색</span>
+                    </button>
+                </div>
+                <div class="search__text">
+                    <label for="keyword" class="screen--out">책 제목, 작가 검색</label>
+                    <input type="text" id="keyword" class="o-input search__input">
+                </div>
+            </div>
+        </div>
+
+        <div class="keyboard">
+            <ul>
+                {% for i in keyboard.num -%}
+                    <li>
+                        <button type="button" data-num="{{ i }}">{{ i }}</button>
+                    </li>
+                {%- endfor %}
+            </ul>
+            <ul>
+                {% for item in keyboard.txt | limit(0, 10) -%}
+                    <li>
+                        <button type="button" data-ko="{{ item.ko }}"
+                                {% if item.ko_d %}data-ko-d="{{ item.ko_d }}"{% endif %} data-en-s="{{ item.en_s }}"
+                                data-en-b="{{ item.en_b }}">{{ item.ko }}</button>
+                    </li>
+                {%- endfor %}
+            </ul>
+            <ul>
+                {% for item in keyboard.txt | limit(10, 19) -%}
+                    <li>
+                        <button type="button" data-ko="{{ item.ko }}" data-en-s="{{ item.en_s }}"
+                                data-en-b="{{ item.en_b }}">{{ item.ko }}</button>
+                    </li>
+                {%- endfor %}
+            </ul>
+            <ul>
+                <li>
+                    <button type="button" data-btn="upper" data-selected="false"><span class="screen--out">대문자</span>
+                    </button>
+                </li>
+                {% for item in keyboard.txt | limit(19, 26) -%}
+                    <li>
+                        <button type="button" data-ko="{{ item.ko }}" data-en-s="{{ item.en_s }}"
+                                data-en-b="{{ item.en_b }}">{{ item.ko }}</button>
+                    </li>
+                {%- endfor %}
+                <li>
+                    <button type="button" data-btn="delete">지움</button>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <button type="button" data-btn="change" data-selected="ko">한/영</button>
+                </li>
+                <li>
+                    <button type="button" data-btn="space">간격</button>
+                </li>
+                <li>
+                    <button type="submit" data-btn="search">검색</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+{% endmacro %}
+
+{% block content %}
+    {{ searchForm(keyboard) }}
+{%- endblock %}
+
+{% block script %}
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/hangul.min.js"></script>
+    <script type="text/javascript">
+      var INPUT_DATA = [];
+      var REPLACE_DATA = function( str ){
+        INPUT_DATA = Hangul.disassemble( str );
+      };
+
+      function btnAction($obj, $btn) {
+        var $btnList = $obj.find('button');
+        $btnList.on('click', function () {
+          var $this = $(this);
+          $this.addClass('is-active');
+          $btnList.not($this).removeClass('is-active');
+          $obj.attr('data-selected', $this.data('num'));
+        });
+
+        $btn.on('click', function () {
+          if ($obj.attr('data-selected') === '') {
+            alert('감정 키워드를 선택해주세요.');
+            return false;
+          }
+        });
+      }
+
+      function changeData($obj, $list, str){
+        $list.each(function(i, el){
+          if(str === 'ko-d'){
+            if($(el).data(str)){
+              $(el).text($(el).data(str));
+            }else {
+              $(el).text($(el).data('ko'));
+            }
+          }
+          else{
+            $(el).text($(el).data(str));
+          }
+        });
+        $obj.attr('data-selected', str).data('selected', str);
+      }
+
+      function keyBoardAction() {
+        var $btns = $('.keyboard').find('button');
+        var $input = $('.search__input');
+        var totalArr = [];
+        var count = 0;
+        var target;
+        var len = 0;
+        var splitArr;
+        var $upperBtn = $('[data-btn="upper"]');
+        var $txtBtns = $('[data-ko]');
+        var $changeBtn = $('[data-btn="change"]');
+
+        $btns.on('click', function (e) {
+          var $this = $(this);
+          if ($this.data('btn') === 'delete') {
+            if ($input.val().length) {
+              if (target === $this.get(0)) {
+                if (len === 0) {
+                  splitArr = $input.val().split('');
+                  len = Hangul.disassemble(splitArr[splitArr.length - 1]).length;
+                }
+
+                if (count >= len) {
+                  for (var i = 0; i < Hangul.disassemble(splitArr[splitArr.length - 1]).length; i++) {
+                    INPUT_DATA.pop();
+                  }
+                  splitArr.pop();
+                } else {
+                  INPUT_DATA.pop();
+                  count++;
+                  if (count === len) {
+                    splitArr.pop();
+                  }
+                }
+              } else {
+                INPUT_DATA.pop();
+                count = 0;
+                len = 0;
+              }
+            }
+            $input.val(Hangul.assemble(INPUT_DATA));
+          } else if ($this.data('btn') === 'space') {
+            INPUT_DATA.push(' ');
+          } else if ($this.data('btn') === 'upper') {
+            if (($changeBtn.data('selected') === 'ko' || $changeBtn.data('selected') === 'ko-d') && $this.data('selected') === true) {
+              changeData($changeBtn, $txtBtns, 'ko');
+            } else if (($changeBtn.data('selected') === 'ko' || $changeBtn.data('selected') === 'ko-d') && $this.data('selected') === false) {
+              changeData($changeBtn, $txtBtns, 'ko-d');
+            } else if ($this.data('selected') === true) {
+              changeData($changeBtn, $txtBtns, 'en-s');
+            } else {
+              changeData($changeBtn, $txtBtns, 'en-b');
+            }
+            $upperBtn.attr('data-selected', !$upperBtn.data('selected')).data('selected', !$upperBtn.data('selected'));
+          } else if ($this.data('btn') === 'change') {
+            if (($this.data('selected') === 'ko' || $this.data('selected') === 'ko-d') && $upperBtn.data('selected') === true) {
+              changeData($this, $txtBtns, 'en-b');
+            } else if (($this.data('selected') === 'ko' || $this.data('selected') === 'ko-d') && $upperBtn.data('selected') === false) {
+              changeData($this, $txtBtns, 'en-s');
+            } else if ($upperBtn.data('selected') === true) {
+              changeData($this, $txtBtns, 'ko-d');
+            } else {
+              changeData($this, $txtBtns, 'ko');
+            }
+          } else if ($this.data('btn') === 'search') {
+
+          } else {
+            INPUT_DATA.push($(this).text());
+            $input.val(Hangul.assemble(INPUT_DATA));
+
+            if ($(this).data('ko-d') !== '' && $(this).text() === $(this).data('ko-d')) {
+              $upperBtn.trigger('click');
+            }
+          }
+          target = $this.get(0);
+        });
+      }
+
+      $(function () {
+        btnAction($('.keyword-list'), $('.keyword-btn'));
+        keyBoardAction();
+      });
+    </script>
+{% endblock %}
