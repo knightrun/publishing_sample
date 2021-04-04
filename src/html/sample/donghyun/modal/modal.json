@@ -1,0 +1,135 @@
+{
+    "page" : "sample",
+    "page_title": "modal",
+    "layout" : {
+        "header": false,
+        "footer": false,
+        "class_container": "",
+        "class_main": "main",
+        "class_inner": "inner"
+    },
+    "test" : {
+        "modal1" : {
+            "button" : {
+                "text" : "버튼없는 모달",
+                "class" : "button",
+                "dataAttr" : {
+                    "js" : "modal"
+                }
+            },
+            "modal" : {
+                "id" : "agree",
+                "size" : 2,
+                "title" : "이용 동의",
+                "class" : ["modal-custom-class"]
+            }
+        },
+        "modal2" : {
+            "button" : {
+                "text" : "자동 실행 안되는 모달",
+                "class" : "button",
+                "dataAttr" : {
+                    "js" : "modal2"
+                }
+            },
+            "modal" : {
+                "id" : "agree2",
+                "title" : "이용 동의2",
+                "class" : ["modal-custom-class2"]
+            }
+        },
+        "modal3" : {
+            "button" : {
+                "text" : "버튼있는 모달",
+                "class" : "button",
+                "dataAttr" : {
+                    "js" : "modal3"
+                }
+            },
+            "modal" : {
+                "id" : "agree3",
+                "title" : "이용 동의3",
+                "class" : ["modal-custom-class2"],
+                "size" : 2,
+                "button" : [
+                    {
+                        "text" : "확인",
+                        "dataAttr" : {
+                            "dismiss" : "confirm"
+                        }
+                    },
+                    {
+                        "text" : "취소",
+                        "dataAttr" : {
+                            "dismiss" : "cancel"
+                        }
+                    }
+                ]
+            }
+        },
+        "modal4" : {
+            "button" : {
+                "text" : "아이디 없는 모달",
+                "class" : "button",
+                "dataAttr" : {
+                    "js" : "modal4"
+                }
+            },
+            "modal" : {
+                "title" : "이용 동의3",
+                "class" : ["modal-custom-class2"],
+                "size" : 2,
+                "button" : [
+                    {
+                        "text" : "확인",
+                        "dataAttr" : {
+                            "dismiss" : "confirm"
+                        }
+                    },
+                    {
+                        "text" : "취소",
+                        "dataAttr" : {
+                            "dismiss" : "cancel"
+                        }
+                    }
+                ]
+            }
+        },
+        "group1" : {
+            "button" : {
+                "text" : "group",
+                "class" : "button",
+                "dataAttr" : {
+                    "js" : "modal-group1"
+                }
+            },
+            "modal" : {
+                "id" : "group-modal1",
+                "title" : "모달그룹-auto:true",
+                "class" : ["modal-group1"]
+            }
+        },
+        "group2" : {
+            "button" : {
+                "text" : "group",
+                "class" : "button",
+                "dataAttr" : {
+                    "js" : "modal-group2"
+                }
+            },
+            "modal" : {
+                "id" : "group-modal2",
+                "title" : "모달그룹-auto:false",
+                "size" : 2,
+                "class" : ["keyvisual-modal"],
+                "button" : [
+                    {
+                        "text" : "버튼1",
+                        "class" : ["test-buttonclass"]
+                    }
+
+                ]
+            }
+        }
+    }
+}

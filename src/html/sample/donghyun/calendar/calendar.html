@@ -1,0 +1,174 @@
+{% extends "html/layout/layout.html" %}
+
+{% import "dependency/elements/form/form.html" as form %}
+{% import "dependency/elements/calendar/calendar.html" as calendar %}
+{% block content %}
+    <h1 class="sample__title">Calendar</h1>
+    <div class="_guide calendar__wrap" style="padding-bottom: 300px;">
+        <hr class="_guide">
+        <pre>
+{{ 'HTML
+Installation
+<link rel="stylesheet" href="daterangepicker.min.css">
+<script type="text/javascript" src="moment.min.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.daterangepicker.min.js"></script> // custom version
+<script type="text/javascript" src="rangeCalendar.js"></script>
+Markup
+<div class="calendar" data-language="ko" data-format="YYYY-MM-DD"
+ data-disable="2018/05/27,2018/05/28,2018/05/29" data-title="달력"
+ aria-live="polite" aria-atomic="true">
+  <div class="input">
+    <div class="input__wrap input__wrap--date form--readonly">
+      <span class="input__placeholder" id="phd-field-calendar1">날짜</span>
+      <input type="text" class="o-input o-input--date" id="input-calendar1"
+       title="달력" readonly="readonly" aria-describedby="phd-field-calendar1"
+       autocomplete="off">
+    </div>
+  </div>
+</div>
+Data type
+data-language="ko",
+data-format="YYYY-MM-DD",
+data-title="달력",
+data-today="2018/09/13", //오늘날짜
+data-start="2018/08/20", //시작날짜
+data-end="2018/08/30", //종료날짜
+data-disable="2018/08/27,2018/08/28,2018/08/29", //선택불가 날짜
+data-selectday="2018/08/22", //선택날짜
+data-ajax=true, //좌우버튼 클릭시 ajax 통신이 필요한경우
+data-inline=false //기본노출유무
+data-singlemonth=false, //하나만 선택 또는 기간 선택
+data-singledate=false, //single type
+data-multiinput=false //multi type
+ .calendar에 삽입
+
+SCRIPT
+Requires
+jQuery Date Range Picker ("https://longbill.github.io/jquery-date-range-picker/")
+
+Use
+$(".calendar").rangeCalendar();
+$(".calendar").data("plugin_rangeCalendar").method()
+Options
+defaults = {
+    language: lang || "en",
+    format: format || "YYYY-MM-DD",
+    startDate: today, // 현재 일자 기준 선택
+    endDate : endDate || false,
+    nextDate : tomorrow,
+    selectDay : selectDay,
+    minDays:2,
+    //extraClass : "day__exclude",
+    autoClose: false, // 선택시 자동 닫기
+    maxDays : "30", // 최대 선택 일자
+    showTopbar: false,
+    selectForward: false, // 시작일자 클릭시 이전일 disable
+    singleMonth: singleMonth || false,
+    singleDate: singleDate || false,
+    mulitiInput: mulitiInput || false,
+    startId: startId || null, //multi type일때 첫번째 input
+    endId: endId || null, //multi type일때 마지막 input
+    //customTopBar: " ", // 상단 선택일자 표시 글
+    stickyMonths: true, // 고정 달력 : 월별로 별도로 이동 불가
+    separator: "~", // 상단 선택일자 start day + separator + end day
+    showShortcuts: false,
+    container : element,
+    dayDivAttrs : [this.tabindexFn],
+    title : title,
+    ajax : ajax || false,
+    ERRTOOLTIP :"예약 불가",
+    ERRMSG : "예약일자는 불가일자를 포함할 수 없음"
+}
+data-inline=true일 경우 inline:true, alwaysOpen:true extend됨
+
+Methods
+reset(), //초기화
+destroy(),
+update( option ), // "defaultDay", "selectDay" 를 옵션으로 받을수 있음
+Events
+.on("dateChange", function( e, date ){});
+　
+　
+ajax 통신
+dummy.json > calendar
+"dataAttr" : {
+	"ajax" : true
+}
+　
+　
+필수값 체크
+dummy.json > input
+"required" : true,
+"dataAttr" : {
+	"v-item" : true
+}
+' }}
+	</pre>
+
+        <pre>
+- 기본 반응형 : @include calendar();
+- 예약페이지 inline Type : @include calendar2();
+- 예약페이지 popup Type : @include calendar3();
+	</pre>
+
+        <h4 class="_guide__h4">type1 반응형 캘린더 popup Type (Two Month)</h4>
+        <div class="one">
+            {% call calendar.default( calendar1.picker ) %}
+                {{ form.form_input( type="date", calendar1.field ) }}
+            {% endcall %}
+        </div>
+
+        <h4 class="_guide__h4">type1 반응형 캘린더 popup Type (one Month)</h4>
+        <div class="one">
+            {% call calendar.default( calendar2.picker ) %}
+                {{ form.form_input( type="date", calendar2.field ) }}
+            {% endcall %}
+        </div>
+
+        <h4 class="_guide__h4">type1 반응형 캘린더 popup Type (one Month & single date)</h4>
+        <div class="one">
+            {% call calendar.default( calendar6.picker ) %}
+                {{ form.form_input( type="text", calendar6.field ) }}
+            {% endcall %}
+        </div>
+
+        <h4 class="_guide__h4">type1 반응형 캘린더 multi Type (Two Month)</h4>
+        <div class="multi">
+            {% call calendar.multi( calendar5.picker ) %}
+                {{ form.form_input( type="text", calendar5.field1 ) }}
+                {{ form.form_input( type="text", calendar5.field2 ) }}
+            {% endcall %}
+        </div>
+
+        <h4 class="_guide__h4">type1 반응형 inline Type (one Month)</h4>
+        <div class="inline">
+            {{ calendar.inline( calendar3_1 ) }}
+        </div>
+
+        <h4 class="_guide__h4">type2 멀티 inline Type </h4>
+        <div class="two">
+            {{ calendar.inline( calendar3 ) }}
+        </div>
+
+        <h4 class="_guide__h4">type3 popup Type (Two Month)</h4>
+        <div class="three">
+            {% call calendar.default( calendar4.picker ) %}
+                {{ form.form_input( type="text", calendar4.field ) }}
+            {% endcall %}
+        </div>
+    </div>
+{%- endblock %}
+
+{% block script %}
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/underscore-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/moment-2.24.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/jquery.daterangepicker.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/rangeCalendar.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        var $calendar = $('.calendar');
+        $calendar.rangeCalendar();
+      });
+    </script>
+{% endblock %}

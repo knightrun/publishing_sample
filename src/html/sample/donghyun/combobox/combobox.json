@@ -1,0 +1,252 @@
+{
+    "page" : "sample",
+    "page_title": "counter",
+    "layout" : {
+        "header": false,
+        "footer": false,
+        "class_container": "",
+        "class_main": "main",
+        "class_inner": "inner"
+    },
+    "noscroll" : {
+        "option" : [
+            {
+                "value" : "1",
+                "text" : "1"
+            },
+            {
+                "value" : "2",
+                "text" : "2"
+            },
+            {
+                "value" : "3",
+                "text" : "3"
+            }
+        ]
+    },
+    "base" : {
+
+        "option" : [
+            {
+                "value" : "1",
+                "text" : "1"
+            },
+            {
+                "value" : "2",
+                "text" : "2"
+            },
+            {
+                "value" : "3",
+                "text" : "3"
+            },
+            {
+                "value" : "4",
+                "text" : "4"
+            },
+            {
+                "value" : "5",
+                "text" : "5"
+            },
+            {
+                "value" : "6",
+                "text" : "6"
+            },
+            {
+                "value" : "7",
+                "text" : "7",
+                "selected" : true
+            },
+            {
+                "value" : "8",
+                "text" : "8"
+            },
+            {
+                "value" : "9",
+                "text" : "9"
+            },
+            {
+                "value" : "10",
+                "text" : "10"
+            },
+            {
+                "value" : "11",
+                "text" : "11"
+            }
+        ]
+    },
+
+    "disabled" : {
+        "id" : "sort__list",
+        "name" : "sort__list",
+        "title" : "정렬순서",
+        "disabled" : true,
+        "option" : [
+            {
+                "value" : "latest",
+                "text" : "최신순"
+            },
+            {
+                "value" : "price_low",
+                "text" : "낮은 가격순"
+            },
+            {
+                "value" : "price_high",
+                "text" : "높은 가격순"
+            },
+            {
+                "value" : "price_low",
+                "text" : "낮은 가격순"
+            }
+        ]
+    },
+    "group" : {
+        "title" : "옵션그룹",
+        "disabled" : false,
+
+        "optionGroup" : [
+            {
+                "label" : "그룹명1",
+                "option" : [
+                    {
+                        "value" : "1",
+                        "text" : "1"
+                    },
+                    {
+                        "value" : "2",
+                        "text" : "2"
+                    },
+                    {
+                        "value" : "3",
+                        "text" : "3"
+                    },
+                    {
+                        "value" : "4",
+                        "text" : "4"
+                    },
+                    {
+                        "value" : "5",
+                        "text" : "5"
+                    }
+                ]
+            },
+            {
+                "label" : "그룹명2",
+                "option" : [
+                    {
+                        "value" : "6",
+                        "text" : "6"
+                    },
+                    {
+                        "value" : "7",
+                        "text" : "7"
+                    },
+                    {
+                        "value" : "8",
+                        "text" : "8"
+                    },
+                    {
+                        "value" : "9",
+                        "text" : "9"
+                    },
+                    {
+                        "value" : "10",
+                        "text" : "10"
+                    },
+                    {
+                        "value" : "11",
+                        "text" : "11"
+                    }
+                ]
+            },
+            {
+                "label" : "그룹명3",
+                "option" : [
+                    {
+                        "value" : "12",
+                        "text" : "12"
+                    },
+                    {
+                        "value" : "13",
+                        "text" : "13"
+                    },
+                    {
+                        "value" : "14",
+                        "text" : "14"
+                    }
+                ]
+            }
+        ]
+    },
+    "link" : {
+        "title" : "새창 링크",
+        "disabled" : false,
+        "dataAttr" : {
+            "target" : "_blank"
+        },
+        "option" : [
+            {
+                "value" : "",
+                "text" : "새창링크"
+            },
+            {
+                "value" : "http://daum.net",
+                "text" : "다음2"
+            },
+            {
+                "value" : "http://naver.com",
+                "text" : "네이버3"
+            },
+            {
+                "value" : "http://daum.net",
+                "text" : "다음4"
+            },
+            {
+                "value" : "http://naver.com",
+                "text" : "네이버5"
+            },
+            {
+                "value" : "http://daum.net",
+                "text" : "다음6"
+            },
+            {
+                "value" : "http://naver.com",
+                "text" : "네이버7"
+            },
+            {
+                "value" : "http://daum.net",
+                "text" : "다음8"
+            }
+        ]
+    },
+    "linkGroup" : {
+        "title" : "내부링크(그룹)",
+        "optionGroup" : [
+            {
+                "label" : "내부링크 포탈",
+                "option" : [
+                    {
+                        "value" : "http://naver.com",
+                        "text" : "네이버"
+                    },
+                    {
+                        "value" : "http://daum.net",
+                        "text" : "다음"
+                    }
+                ]
+            },
+            {
+                "label" : "커뮤니티",
+                "option" : [
+                    {
+                        "value" : "http://clien.net",
+                        "text" : "클리앙"
+                    },
+                    {
+                        "value" : "http://ppomppu.co.kr",
+                        "text" : "뽐뿌"
+                    }
+                ]
+            }
+        ]
+    }
+}

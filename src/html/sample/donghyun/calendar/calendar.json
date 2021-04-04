@@ -1,0 +1,223 @@
+{
+    "page" : "sample",
+    "page_title": "calendar",
+    "layout" : {
+        "header": false,
+        "footer": false,
+        "class_container": "",
+        "class_main": "main",
+        "class_inner": "inner"
+    },
+    "calendar1" : {
+        "field" : {
+            "id": "input-calendar1",
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-field-calendar1",
+                "text": "날짜"
+            },
+            "readonly": "readonly",
+            "required" : true
+        },
+
+        "picker" : {
+            "type" : "hidden",
+            "class" : ["calendar"],
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-picker-calendar1",
+                "text": "날짜"
+            },
+            "dataAttr" : {
+                "period" : "calendar",
+                "language" : "ko",
+                "format" : "YYYY-MM-DD",
+                "inline" : false,
+                "disable": [
+                    "2018/05/27",
+                    "2018/05/28",
+                    "2018/05/29"
+                ]
+            }
+        }
+    },
+    "calendar2" : {
+        "field" : {
+            "id": "input-calendar2",
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-field-calendar2",
+                "text": "날짜"
+            },
+            "readonly": "readonly",
+            "required" : true
+        },
+
+        "picker" : {
+            "type" : "hidden",
+            "class" : ["calendar"],
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-picker-calendar2",
+                "text": "날짜"
+            },
+            "dataAttr" : {
+                "singleMonth" : true,
+                "singleDate" : false,
+                "period" : "calendar",
+                "language" : "ko",
+                "format" : "YYYY-MM-DD",
+                "inline" : false,
+                "disable": [
+                    "2018/05/30"
+                ]
+            }
+        }
+    },
+    "calendar3" : {
+        "id" : "input-calendar3",
+        "class" : [],
+        "title" : "달력",
+        "dataAttr" : {
+            "language" : "ko",
+            "format" : "YYYY-MM-DD",
+            "inline" : true,
+            "disable": [
+                "2018/05/27",
+                "2018/05/28",
+                "2018/05/29"
+            ],
+            "start":"2018/07/18",
+            "end":"2018/08/17"
+        }
+    },
+    "calendar3_1" : {
+        "id" : "input-calendar3",
+        "class" : [],
+        "title" : "달력",
+        "dataAttr" : {
+            "language" : "ko",
+            "format" : "YYYY-MM-DD",
+            "inline" : true,
+            "singleMonth" : true,
+            "disable": [
+                "2018/05/27",
+                "2018/05/28",
+                "2018/05/29"
+            ]
+        }
+    },
+    "calendar4" : {
+        "field" : {
+            "id": "input-calendar4",
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-field-calendar4",
+                "text": "날짜"
+            },
+            "readonly": "readonly",
+            "required" : true
+        },
+
+        "picker" : {
+            "type" : "hidden",
+            "class" : ["calendar"],
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-picker-calendar4",
+                "text": "날짜"
+            },
+            "dataAttr" : {
+                "period" : "calendar",
+                "language" : "ko",
+                "format" : "YYYY-MM-DD",
+                "inline" : false,
+                "disable": [
+                    "2018/05/27",
+                    "2018/05/28",
+                    "2018/05/29"
+                ]
+            }
+        }
+    },
+    "calendar5" : {
+        "field1" : {
+            "id": "reservation-calendar1",
+            "title": "시작일 달력",
+            "placeholder": {
+                "id": "phd-reservation-calendar1",
+                "text": "YYYY-MM-DD"
+            },
+            "readonly": "readonly",
+            "required" : true
+        },
+        "field2" : {
+            "id": "reservation-calendar2",
+            "title": "종료일 달력",
+            "placeholder": {
+                "id": "phd-reservation-calendar2",
+                "text": "YYYY-MM-DD"
+            },
+            "readonly": "readonly",
+            "required" : true
+        },
+
+        "picker" : {
+            "type" : "hidden",
+            "class" : ["calendar"],
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-reservation-calendar",
+                "text": "날짜"
+            },
+            "dataAttr" : {
+                "startId": "reservation-calendar1",
+                "endId": "reservation-calendar2",
+                "period" : "calendar",
+                "language" : "ko",
+                "format" : "YYYY-MM-DD",
+                "inline" : false,
+                "disable": [
+                    "2018/05/27",
+                    "2018/05/28",
+                    "2018/05/29"
+                ]
+            }
+        }
+    },
+    "calendar6" : {
+        "field" : {
+            "id": "reservation-calendar",
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-reservation-calendar",
+                "text": "날짜"
+            },
+            "readonly": "readonly",
+            "required" : true
+        },
+
+        "picker" : {
+            "type" : "hidden",
+            "class" : ["single"],
+            "title": "달력",
+            "placeholder": {
+                "id": "phd-reservation-calendar",
+                "text": "날짜"
+            },
+            "dataAttr" : {
+                "singleMonth" : true,
+                "period" : "calendar",
+                "language" : "ko",
+                "format" : "YYYY-MM-DD",
+                "inline" : false,
+                "singleDate" : true,
+                "disable": [
+                    "2018/05/27",
+                    "2018/05/28",
+                    "2018/05/29"
+                ]
+            }
+        }
+    }
+}

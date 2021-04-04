@@ -1,0 +1,983 @@
+$arrow-size: 40px !default;
+//font size
+$datepicker-font-size: 16px !default;
+$datepicker-week-font-size: 16px !default;
+
+// Colors
+$datepicker-color: inherit !default;
+$datepicker-bg-color: #fff !default;
+
+$datepicker-in-range-color: #fff !default;
+$datepicker-in-range-bg-color: #d1af7e !default;
+
+$datepicker-active-color: #fff !default;
+$datepicker-active-bg-color: #1b65b3 !default;
+
+$datepicker-valid-color: #000 !default;
+$datepicker-valid-bg-color: #fff !default;
+
+$datepicker-unselected-color: #c5c5c5 !default;
+$datepicker-unselected-bg-color: #fff !default;
+
+// datepicker
+$datepicker-padding: 0 10px !default;
+$datepicker-z-index: 3000 !default;
+
+$datepicker-wrapper-border-size: 1px !default;
+$datepicker-wrapper-border-color: #bbb !default;
+//$datepicker-wrapper-box-shadow:0px 5px 10px rgba(0, 0, 0, 0.2);
+
+// Calendar
+$datepicker-calendar-width: 285px !default;
+$datepicker-calendar-bg-color: $datepicker-bg-color !default;
+
+// Calendar Cells
+$datepicker-cell-size: 40px !default;
+$datepicker-cell-width: $datepicker-cell-size !default;
+$datepicker-cell-height: $datepicker-cell-size !default;
+
+@mixin calendar($inline:false) {
+    // 예약페이지를 제외한 모든 캘린더 POPUP Type
+
+    .date-picker-wrapper {
+        width: 100%;
+        color: $datepicker-color;
+        background-color: #fff;
+
+        @if $inline == true {
+            display: inline-block;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 99;
+
+            @include breakpoint($point: tablet) {
+                left: 50%;
+            }
+        } @else {
+            position: absolute;
+            top: 39px;
+            left: 0;
+            padding: 17px 24px 38px;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+
+            @include breakpoint($point: tablet) {
+                top: 43px;
+                padding: 18px 0 30px;
+                border: 1px solid #ccc;
+            }
+        }
+
+        &.align-right {
+            left: auto;
+            right: 0;
+        }
+
+        &.single-date {
+            .hovering, .first-date-selected {
+                border-radius: 15px !important;
+            }
+        }
+
+        &.single-month {
+            @include breakpoint($point: tablet) {
+                width: auto;
+            }
+
+            .month-wrapper {
+                @if $inline == true {
+                } @else {
+                    @include breakpoint($point: tablet) {
+                        padding: 0 25px;
+                    }
+                }
+            }
+        }
+
+        &.two-months {
+            @include breakpoint($point: tablet) {
+                width: 491px;
+            }
+
+            .month {
+                @include breakpoint($point: tablet) {
+                    &--1 {
+                        float: left;
+                    }
+                    &--2 {
+                        float: right;
+                    }
+                }
+            }
+
+            .month-wrapper {
+                @include breakpoint($point: tablet) {
+                    overflow: hidden;
+                    position: relative;
+                    width: 437px;
+                    &:before {
+                        display: block;
+                        position: absolute;
+                        top: 12px;
+                        left: 50%;
+                        width: 1px;
+                        height: 100%;
+                        background-color: #e6e6e6;
+                        content: "";
+                    }
+                }
+            }
+        }
+    }
+
+    .month-wrapper {
+        margin: 0 auto;
+        @include clearfix();
+
+        table {
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+            border-spacing: 1px;
+
+            th, td {
+                font-size: 14px;
+                text-align: center;
+                width: $datepicker-cell-width;
+                white-space: nowrap;
+                cursor: pointer;
+
+            }
+
+            th {
+                line-height: 35px;
+                text-transform: capitalize;
+                font-weight: 500;
+                @include breakpoint($point: tablet) {
+                    padding-bottom: 0;
+                    line-height: 24px;
+                }
+            }
+
+            td {
+                padding: 3px 0;
+                border-bottom: 1px solid #fff;
+                @include breakpoint($point: tablet) {
+                    padding: 0;
+                }
+
+                &:first-child {
+                    //일요일
+                    .day {
+                        &.toMonth.valid {
+                            color: #ef6600 !important;
+                        }
+
+                        &.toMonth.valid.hovering,
+                        &.toMonth.real-today.checked,
+                        &.toMonth.real-today.hovering,
+                        &.toMonth.valid.checked {
+                            background-color: $datepicker-active-bg-color !important;
+                            color: $datepicker-in-range-color !important;
+                        }
+
+                        &.toMonth.valid {
+                            color: #ef6600 !important;
+                        }
+
+                        &.toMonth.valid.day--exclude {
+                            color: $datepicker-unselected-color !important;
+                        }
+
+                        &.checked.first-date-selected,
+                        &.checked.last-date-selected {
+                            background-color: $datepicker-active-bg-color !important;
+                            color: $datepicker-active-color !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .day {
+            color: $datepicker-unselected-color;
+            background-color: $datepicker-unselected-bg-color;
+            height: 29px;
+            font-size: 14px;
+            line-height: 29px;
+
+            @include breakpoint($point: tablet) {
+                height: 24px;
+                font-size: 13px;
+                line-height: 24px;
+            }
+
+            &.toMonth.hovering,
+            &.real-today.checked,
+            &.real-today.hovering,
+            &.checked {
+                font-weight: 500;
+                background-color: $datepicker-active-bg-color !important;
+                color: $datepicker-in-range-color !important;
+            }
+
+            &.hovering--last {
+                border-radius: 0 15px 15px 0
+            }
+
+            &.toMonth.valid {
+                background-color: $datepicker-valid-bg-color;
+                color: $datepicker-valid-color;
+            }
+
+            &.toMonth.day--exclude {
+                color: $datepicker-unselected-color !important;
+            }
+
+            &.checked.first-date-selected,
+            &.checked.last-date-selected {
+                background-color: $datepicker-active-bg-color !important;
+                color: $datepicker-active-color !important;
+            }
+
+            &.checked.first-date-selected {
+                border-radius: 15px 0 0 15px;
+            }
+
+            &.checked.last-date-selected {
+                border-radius: 0 15px 15px 0;
+            }
+
+            &.nextMonth, &.lastMonth {
+                display: none;
+            }
+        }
+
+        .month {
+            position: relative;
+            padding-top: 24px;
+
+            @if $inline == true {
+                @include breakpoint($point: tablet) {
+                    width: 203px;
+                    padding-top: 6px;
+                    margin-left: -101.5px;
+                }
+            } @else {
+                @include breakpoint($point: tablet) {
+                    width: 203px;
+                    padding-top: 6px;
+                }
+            }
+        }
+
+        .month-name {
+            padding-bottom: 5px;
+            font-size: 17px;
+            color: #333;
+            @include breakpoint($point: tablet) {
+                font-size: 14px;
+            }
+        }
+
+        .month-element {
+            display: inline-block;
+            margin: 0 3px;
+            font-size: 17px;
+            font-weight: 500;
+            @include breakpoint($point: tablet) {
+                font-size: 14px;
+            }
+        }
+
+        .prev, .next {
+            display: block;
+            position: absolute;
+            top: 22px;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: #222;
+            letter-spacing: -1px;
+            vertical-align: top;
+            appearance: none;
+
+            & span {
+                white-space: nowrap;
+            }
+
+            &[disabled], &.is-disabled {
+                cursor: default;
+            }
+
+            @include breakpoint($point: tablet) {
+                top: 0;
+                width: 30px;
+                height: 38px;
+            }
+
+            &:before, &:after {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 12px;
+                height: 2px;
+                background-color: #333;
+                content: '';
+                @include breakpoint($point: tablet) {
+                    width: 10px;
+                }
+            }
+
+            &[disabled] {
+                &:before, &:after {
+                    background-color: #bbb;
+                }
+            }
+        }
+
+        .prev {
+            left: 0;
+
+            &:before {
+                transform: rotate(-45deg);
+                margin-top: -5px;
+                margin-left: -6px;
+                @include breakpoint($point: tablet) {
+                    margin-top: -4px;
+                    margin-left: -5px;
+                }
+            }
+
+            &:after {
+                transform: rotate(45deg);
+                margin-top: 3px;
+                margin-left: -6px;
+                @include breakpoint($point: tablet) {
+                    margin-top: 2px;
+                    margin-left: -5px;
+                }
+            }
+        }
+
+        .next {
+            right: 0;
+
+            &:before {
+                transform: rotate(-45deg);
+                margin-top: 3px;
+                margin-left: -6px;
+                @include breakpoint($point: tablet) {
+                    margin-top: 2px;
+                    margin-left: -5px;
+                }
+            }
+
+            &:after {
+                transform: rotate(45deg);
+                margin-top: -5px;
+                margin-left: -6px;
+                @include breakpoint($point: tablet) {
+                    margin-top: -4px;
+                    margin-left: -5px;
+                }
+            }
+        }
+    }
+
+    .date-range-length-tip {
+        position: absolute;
+        margin-top: 0;
+        margin-left: -8px;
+        display: none;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 0 6px;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 16px;
+
+        &:before, &:after {
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            width: 0;
+            border-style: solid;
+            content: '';
+        }
+
+        &:before {
+            border-width: 6px 4px 0;
+            border-color: #ccc transparent;
+            bottom: -6px;
+        }
+
+        &:after {
+            border-width: 5px 3px 0;
+            border-color: #fff transparent;
+            bottom: -5px;
+        }
+    }
+}
+
+@mixin calendar2() {
+    // 예약페이지 inline Type
+
+    .date-picker-wrapper {
+        position: relative;
+        color: inherit;
+        background-color: #fff;
+        padding: 0;
+    }
+
+    .month-wrapper {
+        overflow: hidden;
+        position: relative;
+        width: 619px;
+        margin: 0 auto;
+        @include clearfix();
+
+        @include breakpoint($point: desktop-l) {
+            width: 705px;
+        }
+
+        &:before {
+            display: block;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background-color: #e6e6e6;
+            content: "";
+        }
+
+        table {
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+            border-spacing: 1px;
+
+            th, td {
+                font-size: 16px;
+                text-align: center;
+                width: $datepicker-cell-width;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+
+            th {
+                line-height: 31px;
+                text-transform: capitalize;
+                font-weight: 500;
+            }
+
+            td {
+                border-bottom: 1px solid #fff;
+
+                &:first-child {
+                    //일요일
+                    .day {
+                        &.toMonth.valid {
+                            color: #ef6600 !important;
+                        }
+
+                        &.toMonth.valid.hovering,
+                        &.toMonth.real-today.checked,
+                        &.toMonth.real-today.hovering,
+                        &.toMonth.valid.checked {
+                            background-color: $datepicker-active-bg-color !important;
+                            color: $datepicker-in-range-color !important;
+                        }
+
+                        &.toMonth.valid {
+                            color: #ef6600 !important;
+                        }
+
+                        &.toMonth.valid.day--exclude {
+                            color: $datepicker-unselected-color !important;
+                        }
+
+                        &.checked.first-date-selected,
+                        &.checked.last-date-selected {
+                            background-color: $datepicker-active-bg-color !important;
+                            color: $datepicker-active-color !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .day {
+            color: $datepicker-unselected-color;
+            background-color: $datepicker-unselected-bg-color;
+            height: 31px;
+            line-height: 31px;
+
+            &.toMonth.hovering,
+            &.real-today.checked,
+            &.real-today.hovering,
+            &.checked {
+               font-weight: 500;
+                background-color: $datepicker-active-bg-color !important;
+                color: $datepicker-in-range-color !important;
+            }
+
+            &.hovering--last {
+                border-radius: 0 16px 16px 0;
+            }
+
+            &.toMonth.valid {
+                background-color: $datepicker-valid-bg-color;
+                color: $datepicker-valid-color;
+            }
+
+            &.toMonth.day--exclude {
+                color: $datepicker-unselected-color !important;
+            }
+
+            &.checked.first-date-selected,
+            &.checked.last-date-selected {
+                background-color: $datepicker-active-bg-color !important;
+                color: $datepicker-active-color !important;
+            }
+
+            &.checked.first-date-selected {
+                border-radius: 16px 0 0 16px;
+            }
+
+            &.checked.last-date-selected {
+                border-radius: 0 16px 16px 0;
+            }
+
+            &.nextMonth, &.lastMonth {
+                display: none;
+            }
+        }
+
+        .month {
+            position: relative;
+            width: 294px;
+            padding-top: 22px;
+
+            &--1 {
+                float: left;
+            }
+
+            &--2 {
+                float: right;
+            }
+        }
+
+        .month-name {
+            padding-bottom: 9px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .month-element {
+            display: inline-block;
+            margin: 0 3px;
+            font-weight: 500;
+        }
+
+        .prev, .next {
+            display: block;
+            position: absolute;
+            top: 18px;
+            z-index: 1;
+            width: 38px;
+            height: 38px;
+            font-weight: 500;
+            text-align: center;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: #222;
+            letter-spacing: -1px;
+            vertical-align: top;
+            appearance: none;
+
+            & span {
+                white-space: nowrap;
+            }
+
+            &[disabled], &.is-disabled {
+                cursor: default;
+            }
+
+            &:before, &:after {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 10px;
+                height: 2px;
+                background-color: #333;
+                content: '';
+            }
+
+            &[disabled] {
+                &:before, &:after {
+                    background-color: #bbb;
+                }
+            }
+        }
+
+        .prev {
+            left: 0;
+
+            &:before {
+                transform: rotate(-45deg);
+                margin-top: -3px;
+                margin-left: -5px;
+            }
+
+            &:after {
+                transform: rotate(45deg);
+                margin-top: 3px;
+                margin-left: -5px;
+            }
+        }
+
+        .next {
+            right: 0;
+
+            &:after {
+                transform: rotate(45deg);
+                margin-top: -3px;
+                margin-left: -5px;
+            }
+
+            &:before {
+                transform: rotate(-45deg);
+                margin-top: 3px;
+                margin-left: -5px;
+            }
+        }
+    }
+
+    .date-range-length-tip {
+        position: absolute;
+        margin-top: 0;
+        margin-left: -8px;
+        display: none;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 0 6px;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 16px;
+
+        &:before, &:after {
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            width: 0;
+            border-style: solid;
+            content: '';
+        }
+
+        &:before {
+            border-width: 6px 4px 0;
+            border-color: #ccc transparent;
+            bottom: -6px;
+        }
+
+        &:after {
+            border-width: 5px 3px 0;
+            border-color: #fff transparent;
+            bottom: -5px;
+        }
+    }
+}
+
+@mixin calendar3() {
+    // 예약페이지 popup Type
+
+    .date-picker-wrapper {
+        position: absolute;
+        top: 43px;
+        left: 0;
+        z-index: 100;
+        width: 491px;
+        padding: 18px 0 30px;
+        border: 1px solid #ccc;
+        color: $datepicker-color;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+
+        &.align-right {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    .month-wrapper {
+        overflow: hidden;
+        position: relative;
+        width: 437px;
+        margin: 0 auto;
+        @include clearfix();
+
+        &:before {
+            display: block;
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background-color: #e6e6e6;
+            content: "";
+        }
+
+        table {
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+            border-spacing: 1px;
+
+            th, td {
+                font-size: 13px;
+                text-align: center;
+                width: $datepicker-cell-width;
+                white-space: nowrap;
+                cursor: pointer;
+
+            }
+
+            th {
+                line-height: 24px;
+                text-transform: capitalize;
+                font-weight: 500;
+            }
+
+            td {
+                border-bottom: 1px solid #fff;
+
+                &:first-child {
+                    //일요일
+                    .day {
+                        &.toMonth.valid {
+                            color: #ef6600 !important;
+                        }
+
+                        &.toMonth.valid.hovering,
+                        &.toMonth.real-today.checked,
+                        &.toMonth.real-today.hovering,
+                        &.toMonth.valid.checked {
+                            background-color: $datepicker-active-bg-color !important;
+                            color: $datepicker-in-range-color !important;
+                        }
+
+                        &.toMonth.valid {
+                            color: #ef6600 !important;
+                        }
+
+                        &.toMonth.valid.day--exclude {
+                            color: $datepicker-unselected-color !important;
+                        }
+
+                        &.checked.first-date-selected,
+                        &.checked.last-date-selected {
+                            background-color: $datepicker-active-bg-color !important;
+                            color: $datepicker-active-color !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .day {
+            color: $datepicker-unselected-color;
+            background-color: $datepicker-unselected-bg-color;
+            height: 24px;
+            line-height: 24px;
+
+            &.toMonth.hovering,
+            &.real-today.checked,
+            &.real-today.hovering,
+            &.checked {
+               font-weight: 500;
+                background-color: $datepicker-active-bg-color !important;
+                color: $datepicker-in-range-color !important;
+            }
+
+            &.hovering--last {
+                border-radius: 0 12px 12px 0
+            }
+
+            &.toMonth.valid {
+                background-color: $datepicker-valid-bg-color;
+                color: $datepicker-valid-color;
+            }
+
+            &.toMonth.day--exclude {
+                color: $datepicker-unselected-color !important;
+            }
+
+            &.checked.first-date-selected,
+            &.checked.last-date-selected {
+                background-color: $datepicker-active-bg-color !important;
+                color: $datepicker-active-color !important;
+            }
+
+            &.checked.first-date-selected {
+                border-radius: 12px 0 0 12px;
+            }
+
+            &.checked.last-date-selected {
+                border-radius: 0 12px 12px 0;
+            }
+
+            &.nextMonth, &.lastMonth {
+                display: none;
+            }
+        }
+
+        .month {
+            position: relative;
+            width: 203px;
+            padding-top: 6px;
+
+            &--1 {
+                float: left;
+            }
+
+            &--2 {
+                float: right;
+            }
+        }
+
+        .month-name {
+            padding-bottom: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .month-element {
+            display: inline-block;
+            margin: 0 3px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .prev, .next {
+            display: block;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            width: 30px;
+            height: 38px;
+            text-align:center;
+            border:0;
+            border-radius:0;
+            background:transparent;
+            color:#222;
+            letter-spacing:-1px;
+            vertical-align:top;
+            appearance:none;
+            & span {
+                white-space: nowrap;
+            }
+            &[disabled], &.is-disabled {
+                cursor:default;
+            }
+
+            &:before, &:after {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 10px;
+                height: 2px;
+                background-color: #333;
+                content: '';
+            }
+
+            &[disabled] {
+                &:before, &:after {
+                    background-color: #bbb;
+                }
+            }
+        }
+
+        .prev {
+            left: 0;
+
+            &:before {
+                transform: rotate(-45deg);
+                margin-top: -4px;
+                margin-left: -5px;
+            }
+
+            &:after {
+                transform: rotate(45deg);
+                margin-top: 2px;
+                margin-left: -5px;
+            }
+        }
+
+        .next {
+            right: 0;
+
+            &:before {
+                transform: rotate(-45deg);
+                margin-top: 2px;
+                margin-left: -5px;
+            }
+
+            &:after {
+                transform: rotate(45deg);
+                margin-top: -4px;
+                margin-left: -5px;
+            }
+        }
+    }
+
+    .date-range-length-tip {
+        position: absolute;
+        margin-top: 0;
+        margin-left: -8px;
+        display: none;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 0 6px;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 16px;
+
+        &:before, &:after {
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            width: 0;
+            border-style: solid;
+            content: '';
+        }
+
+        &:before {
+            border-width: 6px 4px 0;
+            border-color: #ccc transparent;
+            bottom: -6px;
+        }
+
+        &:after {
+            border-width: 5px 3px 0;
+            border-color: #fff transparent;
+            bottom: -5px;
+        }
+    }
+}

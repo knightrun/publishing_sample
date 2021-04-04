@@ -1,0 +1,131 @@
+{% extends "html/layout/layout.html" %}
+
+{% import "dependency/elements/combobox/combobox.html" as combobox %}
+
+{% block content %}
+    <h1 class="sample__title">Combobox</h1>
+    <div style="width: 1020px;margin:0 auto;padding: 30px 0 200px;">
+        <pre>{{ 'Markup
+<div data-js="combobox">
+    <select class="combobox combobox--1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+
+"select_base" : {
+	"id" : "sort__list",
+	"name" : "sort__list",
+	"title" : "정렬순서",
+	"maxheight" : 200,
+	"disabled" : false,
+	"option" : [
+		{
+			"value" : "latest",
+			"text" : "최신순"
+		},
+		{
+			"value" : "price_low",
+			"text" : "낮은 가격순"
+		},
+		{
+			"value" : "price_high",
+			"text" : "높은 가격순"
+		},
+		{
+			"value" : "price_low",
+			"text" : "낮은 가격순"
+		}
+	]
+},
+
+
+Data type
+data-dismiss="confirm",
+data-dismiss="cancel"
+
+Use
+$([data-js="combobox"]).each(function(){
+    var $this = $(this);
+    $this.combobox( option, size );
+$([data-js="combobox"]).data("plugin_combobox").method();
+
+Methods
+destroy(),
+update( boolean ) //boolean : 체인지 이벤트 발생 유무
+Trigger
+// fire change even
+$( 콤보박스 ).trigger("update")
+// not fire change event
+$( 콤보박스 ).trigger("update", true)
+
+- 스타일2종
+	　
+- SIZE2 : 배경 흰색, 높이 작은거 ( 보통 상단 검색영역에 쓰인다고 함)
+combobox.select( select_base )
+　
+- SIZE1 : 배경색 있고 높이 큰거 (그 외에 모두)
+combobox.select( select_base, 2 )
+' }}
+    </pre>
+        <div class="temp-combobox">
+            <h2 class="sample__title--case">noscroll</h2>
+            <br style="height:30px;">
+            {{ combobox.make( noscroll ) }}
+            <br style="height:30px;">
+            <h2 class="sample__title--case">default</h2>
+            <br style="height:30px;">
+            {{ combobox.make( base ) }}
+            <br style="height:30px;">
+            <h2 class="sample__title--case">disabled</h2>
+            <br style="height:30px;">
+            {{ combobox.make( disabled ) }}
+            <br style="height:30px;">
+            <h2 class="sample__title--case">group</h2>
+            <br style="height:30px;">
+            {{ combobox.make( group ) }}
+            <br style="height:30px;">
+            <h2 class="sample__title--case">link</h2>
+            <br style="height:30px;">
+            {{ combobox.make( link ) }}
+            <br style="height:30px;">
+            <h2 class="sample__title--case">linkGroup</h2>
+            <br style="height:30px;">
+            {{ combobox.make( linkGroup ) }}
+
+            <br style="height:30px;">
+            <h1>[콤보박스 사이즈 옵션] </h1>
+            <pre>
+		두번째 인자로 '2'를 넘기면 됨
+		combobox.make( base, '2')
+	</pre>
+            {{ combobox.make( base, 2) }}
+        </div>
+    </div>
+
+{%- endblock %}
+
+{% block script %}
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/underscore-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/iscroll.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/combobox.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('[data-js="combobox"]').each(function () {
+          var $this = $(this);
+          var _option = {};
+          $this.combobox($.extend({}, {
+            selectedClassName: 'is-active',
+            disabledClassName: 'is-disabled',
+            hiddenClassName: 'is-hidden',
+            maxheight: $this.data('maxheight') || 154,
+            onInitialize: null,
+            onBeforeChange: null,
+            onAfterChange: null,
+            zIndex: 99
+          }, _option));
+        });
+      });
+    </script>
+{% endblock %}

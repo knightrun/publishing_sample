@@ -1,0 +1,206 @@
+.sample__title {
+	display: block;
+	padding: 15px;
+	background-color: #343a40;
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.sample__title--case {
+	padding: 15px;
+	font-size: 20px;
+	background-color: #e2e2e2;
+	color: #0f0f0f;
+	border-top: 1px solid #909294;
+	border-bottom: 1px solid #909294;
+}
+
+.sample__notice {
+	background-color: rgba(0, 0, 0, 0.03);
+	padding: 15px;
+	font-size: 18px;
+}
+
+.sample__guide li {
+	position: relative;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+
+.sample__guide li:before {
+	content: '-';
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #000;
+}
+
+.sample__code {
+	padding: 30px 0;
+}
+
+.counter {
+	width: 200px;
+}
+
+.counter .c-counter {
+	position: relative;
+	display: block;
+	padding: 0 39px;
+}
+
+@media all and (min-width: 721px) {
+	.counter .c-counter {
+		padding: 0 43px;
+	}
+}
+
+.counter .c-counter__field {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.counter .c-counter__field:focus + .c-counter__view {
+	outline: 1px solid #4d90fe;
+}
+
+.counter .c-counter__view {
+	position: relative;
+	z-index: 2;
+	display: block;
+	width: 100%;
+	height: 40px;
+	border: 1px solid #bbb;
+	background-color: #fff;
+	font-size: 14px;
+	line-height: 38px;
+	text-align: center;
+	pointer-events: none;
+}
+
+.counter .c-counter__view.is-disabled {
+	background-color: #f5f5f5 !important;
+	color: #666 !important;
+}
+
+@media all and (min-width: 721px) {
+	.counter .c-counter__view {
+		height: 44px;
+		line-height: 42px;
+		font-size: 16px;
+	}
+}
+
+.counter .c-counter__button {
+	overflow: hidden;
+}
+
+.counter .c-counter__button span {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	font-size: 1px;
+	opacity: 0;
+}
+
+.counter .c-counter__button[disabled] {
+	background-color: #f5f5f5 !important;
+}
+
+.counter .c-counter__button[disabled]:before, .counter .c-counter__button[disabled]:after {
+	background-color: #999 !important;
+}
+
+.counter .c-counter__button--increase {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 1px solid #bbb;
+	z-index: 5;
+}
+
+@media all and (min-width: 721px) {
+	.counter .c-counter__button--increase {
+		width: 44px;
+		height: 44px;
+	}
+}
+
+.counter .c-counter__button--increase:before {
+	content: '';
+	display: block;
+	width: 12px;
+	height: 1px;
+	background-color: #333;
+	margin: -2px auto;
+	transform: rotate(90deg);
+}
+
+@media all and (min-width: 721px) {
+	.counter .c-counter__button--increase:before {
+		height: 2px;
+	}
+}
+
+.counter .c-counter__button--increase:after {
+	content: "";
+	display: block;
+	width: 12px;
+	height: 1px;
+	background-color: #333;
+	margin: 1px auto;
+	transform: rotate(0deg);
+}
+
+@media all and (min-width: 721px) {
+	.counter .c-counter__button--increase:after {
+		margin: 0 auto;
+		height: 2px;
+	}
+}
+
+.counter .c-counter__button--decrease {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid #bbb;
+	z-index: 5;
+}
+
+@media all and (min-width: 721px) {
+	.counter .c-counter__button--decrease {
+		width: 44px;
+		height: 44px;
+	}
+}
+
+.counter .c-counter__button--decrease:after {
+	content: "";
+	display: block;
+	width: 12px;
+	height: 1px;
+	background-color: #333;
+	margin: 0 auto;
+	-webkit-transform: rotate(0deg);
+	-khtml-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+
+@media all and (min-width: 721px) {
+	.counter .c-counter__button--decrease:after {
+		margin: -2px auto;
+		height: 2px;
+	}
+}

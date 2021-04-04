@@ -1,0 +1,182 @@
+@import "language/ko";
+
+.sample {
+    &__title {
+        display: block;
+        padding:15px;
+        background-color: #343a40;
+        font-size:24px;
+        font-weight:bold;
+        color:#fff;
+
+        &--case {
+            padding:15px;
+            font-size:20px;
+            background-color: #e2e2e2;
+            color:#0f0f0f;
+            border-top: 1px solid #909294;
+            border-bottom: 1px solid #909294;
+        }
+
+
+    }
+
+    &__notice {
+        background-color: rgba(0,0,0,.03);
+        padding:15px;
+        font-size:18px;
+    }
+
+    &__guide {
+        li {
+            position: relative;
+            padding-left: 10px;
+            margin-top: 10px;
+            &:before {
+                content:'-';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color:#000;
+            }
+        }
+    }
+
+    &__code {
+        padding:30px 0;
+    }
+}
+
+
+.counter{
+    width: 200px;
+    .c-counter {
+        $root : &;
+        position: relative;
+        display:block;
+        padding: 0 39px;
+        @include breakpoint($point: tablet) {
+            padding: 0 43px;
+
+        }
+        &__field {
+            overflow:hidden;
+            position:absolute;
+            width:1px;
+            height:1px;
+            opacity:0;
+            &:focus + .c-counter__view {
+                outline:1px solid #4d90fe;
+            }
+        }
+
+        &__view {
+            position:relative;
+            z-index:2;
+            display:block;
+            width:100%;
+            height:40px;
+            border:1px solid #bbb;
+            background-color:#fff;
+            font-size:14px;
+            line-height:38px;
+            text-align:center;
+            pointer-events: none;
+            &.is-disabled {
+                background-color:#f5f5f5 !important;
+                color:#666 !important;
+            }
+            @include breakpoint($point: tablet) {
+                height:44px;
+                line-height:42px;
+                font-size:16px;
+            }
+        }
+
+        &__button {
+            overflow:hidden;
+            span {
+                overflow: hidden;
+                position: absolute;
+
+                width: 1px;
+                height: 1px;
+                font-size: 1px;
+                opacity:0;
+            }
+
+            &[disabled] {
+                background-color:#f5f5f5 !important;;
+                &:before,
+                &:after {
+                    background-color:#999 !important;
+                }
+            }
+            &--increase {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                border: 1px solid #bbb;
+                z-index: 5;
+                @include breakpoint($point: tablet) {
+                    width: 44px;
+                    height: 44px;
+                }
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 12px;
+                    height: 1px;
+                    background-color: #333;
+                    margin: -2px auto;
+                    transform:rotate(90deg);
+                    @include breakpoint($point: tablet) {
+                        height: 2px;
+                    }
+                }
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 12px;
+                    height: 1px;
+                    background-color: #333;
+                    margin: 1px auto;
+                    transform:rotate(0deg);
+                    @include breakpoint($point: tablet) {
+                        margin: 0 auto;
+                        height: 2px;
+                    }
+                }
+            }
+            &--decrease {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 1px solid #bbb;
+                z-index: 5;
+                @include breakpoint($point: tablet) {
+                    width: 44px;
+                    height: 44px;
+                }
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 12px;
+                    height: 1px;
+                    background-color: #333;
+                    margin: 0 auto;
+                    @include css3-prefix(transform, rotate(0deg));
+                    @include breakpoint($point: tablet) {
+                        margin: -2px auto;
+                        height: 2px;
+                    }
+                }
+
+            }
+        }
+    }
+}

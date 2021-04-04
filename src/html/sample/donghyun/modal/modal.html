@@ -1,0 +1,280 @@
+{% extends "html/layout/layout.html" %}
+
+{% import "dependency/elements/cta/cta.html" as cta %}
+{% import "dependency/elements/modal/index.html" as modal %}
+
+{% block content %}
+    <h1 class="sample__title">Modal</h1>
+    <div class="test _guide">
+        <h3 class="_guide__h3"># JSON</h3>
+        <pre>
+modalJSON
+{
+	title : '',                         //(필수) 모달 타이틀
+	id : '',                            //(옵션) 모달ID
+	size : 1,                           //(옵션) PC기준 3가지 사이즈   PC디자인 기준 1(소), 2(중), 3(대)
+	class : [],                         //(옵션) 모달에 추가할 클래스    [배열]
+	button : [                          //(옵션) 하단에 버튼이 있을때   [배열]
+		{
+			type : '',                  //(옵션) default = "button"
+			id : '',
+			class : [],
+			text : '',
+			icon : ''
+			title : '',
+			value : '',
+			disabled : '',
+			dataAttr : {}
+		}
+	]
+}
+</pre>
+        <hr class="_guide__hr">
+        <h3 class="_guide__h3"># script</h3>
+        <p> 버튼과 모달은 기본으로 1:1 매칭이며 , type을 group으로 바꾸는 예제는 아래 있음. </p>
+
+        <h4 class="_guide__h4">기본 옵션 </h4>
+        <pre>
+$( 버튼 ).modal({
+	src : '#' || jQuery Object ,      //모달 셀렉터
+	type : 'alone',     //'alone', 'group'
+	group : '[data-modal-group="anchor"]',
+	auto : false,   // 자동오픈
+	dim : true,
+	dimClose : true,
+	onBeforeOpen : null,
+	onAfterOpen : null,
+	onBeforeClose : null,
+	onAfterClose : null,
+	onConfirm : null,
+	onCancel : null
+});
+
+위 기본 옵션값을 data-key="value" 형식으로 버튼/그룹에 선언해도 됨.
+
+옵션 중 callback 항목은들 플러그인 객체전체를 인자로 전달 받음
+	onBeforeOpen : function(plugin){
+		console.log( plugin );
+		plugin.$modal // 모달 엘리먼트
+		plugin.$trigger // 모달을 열게한 버튼 엘리먼트
+		등등등
+	}
+</pre>
+        <h3 class="_guide__h3"># 트리거</h3>
+        <pre>
+
+{{ '<button type="button" data-src="#agree" data-auto="true"></button>' | escape }}
+
+
+
+$( 모달 ).trigger('open');    //열기
+$( 모달 ).trigger('close');       //닫기
+$( 버튼/그룹 ).trigger('destroy');       //un plugin
+
+	</pre>
+
+        <hr class="_guide__hr">
+
+
+        <h3 class="_guide__h3"># example</h3>
+
+        <h4 class="_guide__h4">싱글</h4>
+        {% set data = test.modal3 %}
+        {{ cta.a( data.button ) }}
+
+        {% call modal.default( data.modal ) %}
+            버튼있는 모달
+        {% endcall %}
+
+
+        {# 1:1 auto :true #}
+        {% set data = test.modal1 %}
+        {{ cta.a( data.button ) }}
+
+        {% call modal.default( data.modal ) %}
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 <br><br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 <br><br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 <br><br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+        {% endcall %}
+
+
+
+        {# 1:1 auto :false #}
+        {% set data = test.modal2 %}
+        {{ cta.a( data.button ) }}
+
+        {% call modal.default( data.modal ) %}
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br><br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br><br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관<br>
+            이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관 이용동의 약관
+        {% endcall %}
+
+
+
+        {# 그룹 #}
+        <h4 class="_guide__h4">그룹</h4>
+        <ul data-js="modal-group-auto" data-src="#group-modal1" data-type="group" data-auto="true">
+            <li><a href="#" class="button" data-js="modal-group__anchor"><span>1 auto:true</span></a></li>
+            <li><a href="#" class="button" data-js="modal-group__anchor"><span>2 auto:true</span></a></li>
+            <li><a href="#" class="button" data-js="modal-group__anchor"><span>3 auto:true</span></a></li>
+        </ul>
+        {% set data = test.group1 %}
+        {{ modal.default( data.modal ) }}
+        <br><br>
+
+        <ul data-js="modal-group-manual" data-src="#group-modal2" data-type="group">
+            <li><a href="#" class="button" data-js="modal-group__anchor"><span>1 auto:false</span></a></li>
+            <li><a href="#" class="button" data-js="modal-group__anchor"><span>2 auto:false</span></a></li>
+            <li><a href="#" class="button" data-js="modal-group__anchor"><span>3 auto:false</span></a></li>
+        </ul>
+        {% set data = test.group2 %}
+        {{ modal.default( data.modal ) }}
+        <br><br>
+
+        <pre>
+// [button]
+		{{ '{{ cta.a( data.button ) }}' | escape }}
+            {{ '<a href="#" data-js="modal" class="button"><span>1:1,오토</span> </a>' | escape  }}
+		여기서 예제로 선택자를 data-js="modal"로 했으나, 변경 후 아래 script 옵션에서 변경하면 됩니다.
+
+// [modal]
+		{{ '{{ modal.default( data.modal ) }}' | escape }}
+            {{ '
+data.modal = {
+	"title" : "이용동의",  // modal Title (필수)
+	"id" : "agree",     // id는 modal의 아이디값으로 들어감
+	"class" : []            // 기본은 class="modal" 로만 들어가고 멀티클래스 줄 경우 추가
+}' | escape }}
+</pre>
+
+        <pre>
+// script
+$('[data-js="modal"]').modal({
+	src : '#id' || $(jquery object), // (필수)
+	auto : true
+});
+
+defaults = {
+	src : '#',
+	type : 'alone',     //'alone', 'group'
+	group : '[data-modal-group="anchor"]',
+	auto : false,   // 자동오픈 여부
+	dim : true,
+	dimClose : true,
+
+	onBeforeOpen : null,
+	onAfterOpen : null,
+	onBeforeClose : null,
+	onAfterClose : null,
+	onConfirm : null,
+	onCancel : null
+}
+</pre>
+        <pre>
+
+// manual
+$('[data-js="modal2"]').modal({
+	src : '#agree2'
+});
+
+모달내 데이터 변경 후 오픈시
+$( 모달 ).trigger('open');
+
+$('[data-js="modal2"]').on('click',function(e){
+	// code
+	$('#agree2').trigger('open');   // open
+});
+
+</pre>
+        <div class="component">
+            {% set data = test.modal4 %}
+            {{ cta.a( data.button ) }}
+
+            {% call modal.default( data.modal ) %}
+                버튼있는 모달
+            {% endcall %}
+        </div>
+    </div>
+{%- endblock %}
+
+{% block script %}
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/underscore-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/iscroll.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/modal.js"></script>
+    <script>
+        (function($){
+            function modalInit(){
+                $(function(){
+
+                    // auto
+                    $('[data-js="modal"]').modal({
+                        src : '#agree',
+                        auto : true
+                    });
+
+                    // manual
+                    $('[data-js="modal2"]').modal({
+                        src : '#agree2'
+                    });
+
+                    // 버튼있는 모달
+                    $('[data-js="modal3"]').modal({
+                        src : '#agree3',
+                        auto : true
+                    });
+
+
+                    // 아이디없는 모달
+                    $('.component').each(function(){
+                        var $comp = $(this);
+
+                        $comp.find('[data-js="modal4"]').modal({
+                            src : $comp.find('.c-modal'),
+                            auto : true
+                        });
+                    })
+
+
+                    // group auto
+                    $('[data-js="modal-group-auto"]').modal({
+                        group : '[data-js="modal-group__anchor"]',
+                        onBeforeOpen : function( plugin ){
+                            plugin.$modal
+                                .find('.c-modal__content')
+                                .text( plugin.$trigger.text() )
+                        }
+                    });
+
+                    // group manual
+                    $('[data-js="modal-group-manual"]').modal({
+                        group : '[data-js="modal-group__anchor"]'
+                    }).on('click','[data-js="modal-group__anchor"]',function(){
+
+                        $('#group-modal2')
+                            .find('.c-modal__content')
+                            .text( $(this).text() )  //모달 띄우기 전 작업
+                            .end().trigger('open');
+                    });
+
+                });
+            }
+
+            PUB.UI.elem.$doc.on(PUB.UI.events.ready, modalInit);
+        })(jQuery);
+    </script>
+{% endblock %}

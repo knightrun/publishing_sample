@@ -1,0 +1,549 @@
+@import "language/ko";
+
+.sample {
+    &__title {
+        display: block;
+        padding:15px;
+        background-color: #343a40;
+        font-size:24px;
+        font-weight:bold;
+        color:#fff;
+
+        &--case {
+            padding:15px;
+            font-size:20px;
+            background-color: #e2e2e2;
+            color:#0f0f0f;
+            border-top: 1px solid #909294;
+            border-bottom: 1px solid #909294;
+        }
+
+
+    }
+
+    &__notice {
+        background-color: rgba(0,0,0,.03);
+        padding:15px;
+        font-size:18px;
+    }
+
+    &__guide {
+        li {
+            position: relative;
+            padding-left: 10px;
+            margin-top: 10px;
+            &:before {
+                content:'-';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color:#000;
+            }
+        }
+    }
+
+    &__code {
+        padding:30px 0;
+    }
+}
+
+
+._guide {
+    margin:30px;
+    &__h1 {
+        margin:0.5em 0;
+        font-size:4em;
+    }
+    &__h2 {
+        margin:0.5em 0;
+        font-size:3em;
+    }
+    &__h3 {
+        margin:0.5em 0;
+        font-size:2em;
+    }
+    &__h4 {
+        margin:0.5em 0;
+        font-size:1.5em;
+    }
+    &__hr {
+        display:block;
+        margin:2em 0;
+        border-top:1px solid #333;
+    }
+
+    pre {
+        display:block;
+        background-color:#eee;
+        margin:1em 0;
+        padding:2em 1em;
+        font-size:1em;
+    }
+}
+
+.button {
+    position:relative;
+    display:inline-block;
+    width:100%;
+    height:40px;
+    font-size:15px;
+    font-weight: 500;
+    text-align:center;
+    border:0;
+    border-radius:0;
+    background:#1b65b3;
+    letter-spacing:-1px;
+    vertical-align:top;
+    appearance:none;
+    color:#fff;
+
+    @include breakpoint($point: tablet) {
+        width:218px;
+        height:50px;
+        font-size:18px;
+    }
+
+    &:active, &:hover, &:focus {
+        background-color:#103d6b;
+        color:#fff;
+    }
+    &[disabled], &.is-disabled {
+        background-color:#1b65b3;
+        color:#fff;
+        &:hover, &:focus, &:active {
+            background-color:#1b65b3;
+        }
+    }
+
+    & > span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        padding: 0 20px;
+        transform: translate(-50%, -52%);
+    }
+}
+
+$modal : c-modal;
+.#{$modal} {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    right:auto;
+    left: 50%;
+    bottom:auto;
+    z-index: 1001;
+    width: 82.7%;
+    max-height: 70%;
+    background-color: #fff;
+    opacity: 0;
+    will-change: transform;
+    transform: translate(-50%, -50%);
+    transition: opacity 200ms, height 200ms;
+
+    @include breakpoint($point: tablet) {
+        width:82.5%;
+        max-height:60%;
+    }
+    @include breakpoint($point: desktop-s) {
+        width:50%;
+        max-height:60%;
+    }
+
+    &.is-active {
+        opacity: 1;
+    }
+
+    &__wrap {
+        position:relative;
+        height:100%;
+        padding:58px 0 25px;
+        .#{$modal}.has-button &{
+            padding-bottom:60px;
+        }
+        @include breakpoint($point: tablet) {
+            padding:92px 0 50px;
+            .#{$modal}.has-button &{
+                padding-bottom:104px;
+            }
+        }
+    }
+
+    &__head {
+        overflow:hidden;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:42px;
+        padding:0 45px;
+        line-height:42px;
+        text-align:center;
+        border-bottom:1px solid #e6e6e6;
+        @include breakpoint($point: tablet) {
+            height:60px;
+            padding:0 60px;
+            line-height:61px;
+        }
+    }
+
+    &__title {
+        font-size:19px;
+        font-weight: 500;
+        line-height:inherit;
+        @include breakpoint($point: tablet) {
+            font-size:22px;
+        }
+        @at-root [lang="my"] & {
+            line-height:inherit;
+        }
+    }
+
+    &__body {
+        //overflow:hidden;
+        position:relative;
+        height:100%;
+        //padding-bottom:15px;
+        //padding: 0 15px;
+        //padding:0 0 0 15px;
+        margin:0 15px;
+
+        @include breakpoint($point: tablet) {
+            //padding:0 30px;
+            //padding:0 0 0 30px;
+            margin:0 30px;
+        }
+    }
+
+    &__scroll {
+        //position:relative;
+        overflow:auto;
+        min-height:100%;
+        height:100%;
+        -webkit-overflow-scrolling: touch;
+        &.has-iscroll {
+            overflow:hidden;
+        }
+    }
+
+    &__content {
+        min-height:100%;
+    }
+
+    &__foot {
+        position:absolute;
+        bottom:15px;
+        left:0;
+        width:100%;
+        text-align:center;
+        font-size:0;
+        @include breakpoint($point: tablet) {
+            bottom:30px;
+        }
+    }
+
+    &__button {
+        position:relative;
+        text-align:center;
+        display:inline-block;
+        border:0;
+        border-radius:0;
+        background:#555;
+        font-weight: 500;
+        color:#fff;
+        letter-spacing:-1px;
+        vertical-align:top;
+        appearance:none;
+        & span {
+            white-space: nowrap;
+        }
+        &[disabled], &.is-disabled {
+            cursor:default;
+        }
+        &:active, &:hover, &:focus {
+            background-color:#333;
+            color:#fff;
+        }
+        &[disabled], &.is-disabled {
+            background-color:#555;
+            color:#fff;
+            &:hover, &:focus, &:active {
+                background-color:#555;
+            }
+        }
+        width:105px;
+        height:30px;
+        margin-left:5px;
+        padding:0 10px;
+        font-size:12px;
+        line-height:1.1;
+
+        &:first-child {
+            margin-left:0;
+        }
+        &--gray {
+            border-color:#555;
+            background-color:#555;
+            color:#fff;
+            &:active, &:hover, &:focus {
+                background-color:#333;
+                color:#fff;
+            }
+            &[disabled], &.is-disabled {
+                background-color:#555;
+                color:#fff;
+                &:hover, &:focus, &:active {
+                    background-color:#555;
+                }
+            }
+        }
+        &--blue {
+            border-color:#1b65b3;
+            background-color:#1b65b3;
+            color:#fff;
+            &:active, &:hover, &:focus {
+                background-color:#103d6b;
+                color:#fff;
+            }
+            &[disabled], &.is-disabled {
+                background-color:#1b65b3;
+                color:#fff;
+                &:hover, &:focus, &:active {
+                    background-color:#1b65b3;
+                }
+            }
+        }
+        &--gold {
+            border-color:#ad9e87;
+            background-color:#ad9e87;
+            color:#fff;
+            &:active, &:hover, &:focus {
+                background-color:#685f51;
+                color:#fff;
+            }
+            &[disabled], &.is-disabled {
+                background-color:#ad9e87;
+                color:#fff;
+                &:hover, &:focus, &:active {
+                    background-color:#ad9e87;
+                }
+            }
+        }
+        &--white {
+            background-color:#fff;
+            color:#333;
+            &:active, &:hover, &:focus {
+                color:#333;
+                &:before {
+                    border-color:#666;
+                }
+            }
+            &[disabled], &.is-disabled {
+                border-color:#bbb;
+                color:#333;
+                &:before {
+                    border-color:#bbb;
+                }
+                &:hover, &:focus, &:active {
+                    border-color:#bbb;
+                    &:before {
+                        border-color:#bbb;
+                    }
+                }
+            }
+            &:before {
+                position:absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                border:1px solid #bbb;
+                content:"";
+            }
+        }
+        @include breakpoint($point: tablet) {
+            width:160px;
+            height:44px;
+            font-size:18px;
+            margin-left:10px;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width:42px;
+        height:42px;
+        line-height: 1;
+
+        &:before, &:after {
+            display: block;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left:-12px;
+            width: 24px;
+            height:1px;
+            background-color:#333;
+            content: "";
+        }
+        &:before {
+            @include transform('rotate(45deg)');
+        }
+        &:after {
+            @include transform('rotate(135deg)');
+        }
+        @include breakpoint($point: tablet) {
+            width: 61px;
+            height: 61px;
+            &:before, &:after {
+                width: 28px;
+                margin-left:-14px;
+
+            }
+        }
+    }
+
+    &--size2 {
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        max-height:none;
+        transform:none;
+        @include breakpoint($point: tablet) {
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            width:92.4%;
+            height:auto;
+            max-height:80%;
+        }
+        @include breakpoint($point: desktop-s) {
+            width:70%;
+            height:auto;
+            max-height:70%;
+        }
+
+        .#{$modal} {
+            &__wrap {
+                padding-top: 63px;
+                @include breakpoint($point: tablet) {
+                    padding-top:92px;
+                }
+            }
+        }
+
+        &.has-button {
+            .#{$modal} {
+                &__wrap {
+                    padding-bottom:60px;
+                    @include breakpoint($point: tablet) {
+                        padding-bottom:104px;
+                    }
+                }
+                &__foot {
+                    @include breakpoint($point: tablet) {
+                        bottom:30px;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    &--size3 {
+        top:0;
+        left:0;
+        transform:none;
+        width:100%;
+        height:100%;
+        max-height:none;
+        @include breakpoint($point: tablet) {
+            top:50%;
+            left:50%;
+            width:92.4%;
+            height:auto;
+            max-height:80%;
+            transform: translate(-50%, -50%);
+        }
+        @include breakpoint($point: desktop-s) {
+            width:90%;
+            max-height:80%;
+        }
+
+        .#{$modal} {
+            &__wrap {
+                padding-top: 63px;
+                @include breakpoint($point: tablet) {
+                    padding-top:92px;
+                }
+            }
+        }
+
+        &.has-button {
+            .#{$modal} {
+                &__wrap {
+                    padding-bottom:60px;
+                    @include breakpoint($point: tablet) {
+                        padding-bottom:104px;
+                    }
+                }
+                &__foot {
+                    @include breakpoint($point: tablet) {
+                        bottom:30px;
+                    }
+                }
+            }
+        }
+    }
+
+    .iScrollVerticalScrollbar {
+        position: absolute;
+        z-index: 9999;
+        width: 10px;
+        bottom: 5px;
+        top: 5px;
+        right:-10px;
+        overflow: hidden;
+        @include breakpoint($point: tablet) {
+            right:-0;
+            background: #eee;
+        }
+
+        &.iScrollBothScrollbars {
+            bottom:18px;
+        }
+        .iScrollIndicator {
+            width: 100%;
+            background:#666;
+        }
+    }
+
+    .iScrollHorizontalScrollbar {
+        position: absolute;
+        z-index: 9999;
+        height: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: -10px;
+        overflow: hidden;
+        &.iScrollBothScrollbars {
+            right:18px;
+        }
+
+        .iScrollIndicator {
+            height: 100%;
+            background:#666;
+        }
+    }
+
+    .iScrollIndicator {
+        position: absolute;
+        background: #e6e6e6;
+    }
+}

@@ -1,0 +1,707 @@
+@import "language/ko";
+
+.row {margin:0;}
+
+.validation__text__wrap {
+    .validation__text {
+        padding-top:5px;
+        color:#ef6600;
+        display:inline-block;
+        font-size:12px;
+
+        &.agree {
+            color: #666666;
+        }
+
+        @include breakpoint($point: tablet) {
+            padding-top:10px; //TODO padding-top
+            font-size:14px;
+        }
+    }
+}
+
+.form--focus .notice__text {
+    display:block;
+}
+
+.notice__text {
+    padding-top:4px;        //TODO padding-top
+    display:none;
+    font-size:12px;
+    @include breakpoint($point: tablet) {
+        padding-top:10px; //TODO padding-top
+        font-size:14px;
+    }
+}
+
+.info__text {
+    padding-top:4px;        //TODO padding-top
+    font-size:14px;
+    line-height:23px;
+    color:#666666;
+
+    @include breakpoint($point: tablet) {
+        font-size:16px;
+        line-height:25px;
+        padding-top:10px; //TODO padding-top
+    }
+}
+.info__list {
+    li {
+        color:#666;
+        position:relative;
+        font-size:14px;
+        line-height:23px;
+        padding-left:10px;
+        &:before {
+            content:"";
+            position:absolute;
+            left:0;
+            top:10px;
+            width:3px;
+            height:3px;
+            background:#666;
+        }
+        @include breakpoint($point: tablet) {
+            font-size:16px;
+            line-height:25px;
+        }
+    }
+}
+.info__link {
+    display:inline-block;
+    color:#ef6600;
+    position:relative;
+    padding-right:12px;
+    font-weight: 500;
+    &:hover, &:focus {color:#ef6600};
+    &:after {
+        content:"";
+        position:absolute;
+        right:0;
+        top:50%;
+        margin-top:-5px;
+        width:10px;
+        height:10px;
+        transform:rotate(-45deg);
+        border-right:2px solid #ef6600;
+        border-bottom:2px solid #ef6600;
+    }
+}
+
+.fileWrap {
+    @include breakpoint($point: tablet) {
+        position:relative;
+    }
+    .file--focus {
+        outline: 1px dotted #000;
+    }
+    .input:first-child {
+        padding-bottom:10px;
+        @include breakpoint($point: tablet) {
+            padding-bottom:0;
+            padding-right:160px;
+        }
+        .o-input--text {
+            &[readonly],
+            &[disabled] {
+                background-color:#f5f5f5 !important;
+                border:1px solid #f5f5f5 !important;;
+                color:#000 !important;;
+            }
+        }
+    }
+    .input__file {
+        position:relative;
+        @include breakpoint($point: tablet) {
+            position:absolute;
+            top:0;
+            right:0;
+            width:160px;
+            height:100%;
+        }
+        .file-upload {
+            overflow:hidden;
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:2;
+            opacity:0;
+            cursor:pointer;
+            &:focus {
+                & + .file-label {
+                    outline:1px dotted #000;
+                }
+            }
+        }
+    }
+}
+
+.o-input {
+    border:0;
+    border-radius:0;
+    box-sizing:border-box;
+    vertical-align:middle;
+    -webkit-appearance:none;
+
+    &--text,
+    &--password,
+    &--tel,
+    &--email,
+    &--date,
+    &--number {
+        width:100%;
+        height:40px;
+        padding:0 15px;
+        position:relative;
+        z-index:1;
+        outline: none;
+        font-size:14px;
+        line-height:40px;
+        background-color:#f5f5f5;
+        border:1px solid #f5f5f5;
+        color:#000;
+        text-align:left;
+
+        @include breakpoint($point: tablet) {
+            padding:0 20px;
+            height:44px;
+            font-size:16px;
+            line-height:44px;
+        }
+
+        &:focus {
+            border-color: #333;
+            background-color:#fff;
+        }
+
+        &[disabled],
+        &[readonly] {
+            background-color:#e6e6e6 !important;
+            border-color:#bbb !important;
+            color:#666 !important;
+        }
+        &::-ms-clear {
+            display:none !important;
+        }
+    }
+    &--number{
+        padding:0 15px;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        @include breakpoint($point: tablet) {
+            padding:0 20px;
+        }
+
+    }
+
+    &--date {
+        $self : &;
+        padding-right:43px;
+        background-image:url('./images/form.png');
+        background-repeat:no-repeat;
+        background-position:right 11px top -93px;
+        background-size:20px auto;
+
+        @include breakpoint($point: tablet) {
+            padding-right:52px;
+            background-position:right 15px top -131px;
+            background-size:27px auto;
+        }
+        @at-root .is-printReady .print__container {
+            #{$self} {
+                background-position:96% -93px;
+                @include breakpoint($point: tablet) {
+                    background-position:96% -131px;
+                }
+            }
+        }
+    }
+
+    &--textarea {
+        width:100%;
+        min-height:160px;
+        padding:10px 15px;
+        font-size:14px;
+        vertical-align:top;
+        background-color:#f5f5f5;
+        border:1px solid #f5f5f5;
+        resize:none;
+        &:focus {
+            border-color: #000;
+            background-color:#fff;
+        }
+
+        &[disabled],
+        &[readonly] {
+            background-color:#e6e6e6 !important;;
+            border-color:#bbb !important;;
+            color:#666 !important;;
+        }
+        @include breakpoint($point: tablet) {
+            font-size:16px;
+        }
+    }
+}
+
+.input {
+    font-size:0;
+    &__wrap {
+        position:relative;
+        label {
+            vertical-align:middle;
+        }
+    }
+
+    &__icheck {
+
+    }
+
+    &__item {
+        display:inline-block;
+        &:last-child {
+            label {
+                margin-right:0;
+            }
+        }
+    }
+
+    &__placeholder {
+        position:absolute;
+        z-index:2;
+        left:0;
+        top:0;
+        padding:0 15px;
+        color:#666666;
+        font-size:14px;
+        line-height:40px;
+        pointer-events: none;
+        @include breakpoint($point: tablet) {
+            padding:0 20px;
+            font-size:16px;
+            line-height:44px;
+        }
+        &.screen--out {
+            top:-9999px;
+            left:-9999px;
+        }
+    }
+
+    &__removetext {
+        display: none;
+        z-index: 1;
+        position: absolute;
+        right:0;
+        top:0;
+        text-indent:-9999px;
+        width:26px;
+        height:40px;
+        overflow: hidden;
+        box-sizing: content-box;
+        @include breakpoint($point: tablet) {
+            width:60px;
+            height:44px;
+        }
+        &:before, &:after {
+            display: block;
+            position: absolute;
+            top:50%;
+            right:10px;
+            width: 10px;
+            height:1px;
+            background-color:#333;
+            content: "";
+            @include breakpoint($point: tablet) {
+                right:20px;
+                width: 15px;
+            }
+        }
+        &:before {
+            @include transform('rotate(45deg)');
+        }
+        &:after {
+            @include transform('rotate(135deg)');
+        }
+    }
+
+    &--2 {
+        .o-input {
+            &--text,
+            &--password,
+            &--tel,
+            &--email,
+            &--date,
+            &--number{
+                border-color:#bcbcbc;
+                height:25px;
+                padding:0 10px;
+                font-size:11px;
+                line-height:23px;
+                background-color:#fff;
+                @include breakpoint($point: tablet) {
+                    height:36px;
+                    padding:0 15px;
+                    font-size:16px;
+                    line-height:34px;
+                }
+            }
+
+            &--date {
+                $self : &;
+                padding-right:34px;
+                background-position:right 7px top -101px;
+
+                @include breakpoint($point: tablet) {
+                    padding-right:46px;
+                    background-position:right 10px top -135px;
+                }
+                @at-root .is-printReady .print__container {
+                    #{$self} {
+                        background-position:96% -101px;
+                        @include breakpoint($point: tablet) {
+                            background-position:96% -135px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .input__placeholder {
+            padding:0 10px;
+            font-size:11px;
+            color:#999;
+            line-height:23px;
+            @include breakpoint($point: tablet){
+                padding:0 15px;
+                font-size:16px;
+                line-height:34px;
+            }
+        }
+    }
+
+}
+
+.required__text__wrap {
+    display:none;
+    .required__text {
+        padding-top:6px;
+        padding-left:18px;
+        position:relative;
+        font-size:12px;
+        @include breakpoint($point: tablet) {
+            font-size:14px;
+        }
+        &:before {
+            content:"";
+            position:absolute;
+            left:0;
+        }
+        &.dot {
+            color:#ef6600;
+            &:before {
+                position:absolute;
+                top:13px;
+                left:6px;
+                width:3px;
+                height:3px;
+                border-radius:50%;
+                background-color:#ef6600;
+                content:"";
+                @include breakpoint($point: tablet) {
+                    top:14px;
+                }
+            }
+        }
+        &.check {
+            color:#000;
+            &:before, &:after {
+                display:block;
+                position:absolute;
+                top:50%;
+                height:1px;
+                background-color:#333;
+                content: "";
+            }
+            &:before {
+                left:0;
+                width:6px;
+                margin-top:4px;
+                @include transform('rotate(45deg)');
+            }
+            &:after {
+                left:3px;
+                width:11px;
+                margin-top:2px;
+                @include transform('rotate(135deg)');
+            }
+        }
+    }
+}
+.form--success {
+    &.input__wrap {
+        .o-input {
+            border-color:#1b65b3 !important;
+            background-color:#fff !important;
+
+            &--text,
+            &--password,
+            &--tel,
+            &--email,
+            &--date,
+            &--number {
+                padding-right:35px;
+                @include breakpoint($point: tablet) {
+                    padding-right:50px;
+                }
+
+            }
+
+            &:read-only{
+                background-color:#e6e6e6 !important;
+                border-color:#bbb !important;
+            }
+        }
+
+        &:after {
+            content:"";
+            position:absolute;
+            top:11px;
+            right:10px;
+            z-index:1;
+            width:18px;
+            height:18px;
+            border-radius:50%;
+            background:#1b65b3 url('./images/form.png') no-repeat 1px -13px;
+            background-size:15px auto;
+            @include breakpoint($point: tablet) {
+                top:12px;
+                right:20px;
+                width:20px;
+                height:20px;
+                background-position:1px -15px;
+                background-size:17px auto;
+            }
+        }
+
+        &--date {
+            &:after {
+                display:none;
+            }
+        }
+    }
+    //&.select__wrap {
+    //    .combobox__button {
+    //        background-color:#fff !important;
+    //        border-color:#1b65b3 !important;
+    //    }
+    //}
+    .validation__text {
+        color:$pointColor3;
+    }
+}
+.form--warning {
+    &.input__wrap {
+        .o-input{
+            background-color:#ffffff !important;
+            border:1px solid #ef6600 !important;
+            &:read-only{
+                background-color:#e6e6e6 !important;
+            }
+        }
+    }
+    &.select__wrap {
+        .combobox__button,
+        .ui-select__combo {
+            background-color:#ffffff !important;
+            border:1px solid #ef6600 !important;
+        }
+    }
+    & + .validation__text {
+        color:#ef6600;
+    }
+}
+
+.required-text {
+    color:#ef6600;
+    @include breakpoint($point: tablet) {
+        font-size:16px;
+    }
+}
+.row {
+    //margin:20px 0 0;
+    padding-bottom:20px;
+    font-size:14px;
+    @include clearfix();
+    @include breakpoint($point: tablet) {
+        font-size:16px;
+    }
+    //&:first-child {margin-top:0;}
+    &:last-child {padding-bottom:0;}
+    &__label {
+        display: inline-block;
+        font-size:15px;
+        word-break : normal;
+        font-weight: 500;
+        @include breakpoint($point: tablet) {
+            font-size:18px;
+        }
+    }
+
+    &.no-pb{
+        padding-bottom: 0 !important;
+    }
+}
+.col {
+    padding-top:10px;
+    @include clearfix();
+
+    @include breakpoint($point: tablet) {
+        @include clearfix();
+        &.col--2 {
+            .col__item {
+                width:50%;
+            }
+        }
+        &.col--3 {
+            .col__item {
+                width:33.33%;
+            }
+        }
+        &.col--mob {
+            .col__item {
+                width:40%;
+                &:first-child {
+                    width:20%
+                }
+            }
+        }
+    }
+
+    .col__item {
+        width:100%;
+        padding-top:10px;
+        &:first-child {padding-top:0;}
+        @include breakpoint($point: tablet) {
+            float:left;
+            border-left:2px solid #ffffff;
+            padding-top:0;
+            &:first-child {border-left:none;}
+        }
+    }
+}
+
+.calendar__wrap{
+    @include clearfix();
+    .one{
+        //float:right;
+        //width:30%;
+        @include calendar();
+    }
+    .two{
+        @include clearfix();
+        @include calendar2();
+    }
+    .three{
+        @include clearfix();
+        @include calendar3();
+    }
+    .multi{
+        @include clearfix();
+        position: relative;
+        @include calendar();
+        display: table;
+        font-size: 0;
+        width: 100%;
+        .input {
+            display: inline-block;
+            width: 50%;
+        }
+    }
+    .inline{
+        @include calendar(true);
+    }
+}
+
+._guide {
+    margin:30px;
+    &__h1 {
+        margin:0.5em 0;
+        font-size:4em;
+    }
+    &__h2 {
+        margin:0.5em 0;
+        font-size:3em;
+    }
+    &__h3 {
+        margin:0.5em 0;
+        font-size:2em;
+    }
+    &__h4 {
+        margin:0.5em 0;
+        font-size:1.5em;
+    }
+    &__hr {
+        display:block;
+        margin:2em 0;
+        border-top:1px solid #333;
+    }
+
+    pre {
+        display:block;
+        background-color:#eee;
+        margin:1em 0;
+        padding:2em 1em;
+        font-size:1em;
+    }
+}
+
+.sample {
+    &__title {
+        display: block;
+        padding:15px;
+        background-color: #343a40;
+        font-size:24px;
+        font-weight:bold;
+        color:#fff;
+
+        &--case {
+            padding:15px;
+            font-size:20px;
+            background-color: #e2e2e2;
+            color:#0f0f0f;
+            border-top: 1px solid #909294;
+            border-bottom: 1px solid #909294;
+        }
+    }
+
+    &__notice {
+        background-color: rgba(0,0,0,.03);
+        padding:15px;
+        font-size:18px;
+    }
+
+    &__guide {
+        li {
+            position: relative;
+            padding-left: 10px;
+            margin-top: 10px;
+            &:before {
+                content:'-';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color:#000;
+            }
+        }
+    }
+
+    &__code {
+        padding:30px 0;
+    }
+}

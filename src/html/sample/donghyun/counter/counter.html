@@ -1,0 +1,64 @@
+{% extends "html/layout/layout.html" %}
+
+{% import "dependency/elements/counter/counter.html" as counter %}
+
+{% block content %}
+    <h1 class="sample__title">Counter</h1>
+    <div style="width: 1020px;margin: 0 auto;">
+        <pre>
+{{ '
+# 이벤트
+　
+// 동적 속성변경 후 DOM 재렌더링
+// fire change event
+$("input number").trigger("update");
+　
+// not fire change event
+$("input number").trigger("update",true);
+　
+// 초기값 override 없이, min, max 범위 변경 후 적용
+$("input number").trigger("updateRange");
+　
+// 최초 value로 복구
+$("input number").trigger("restore");
+　
+// Lock (disabled true)
+$("input number").trigger("lock");
+　
+// Unlock (disabled false)
+$("input number").trigger("unlock");
+'
+}}
+    </pre>
+
+        <div class="counter">
+            {{ counter.make() }}
+        </div>
+        <br/>
+        <div class="counter">
+            {{ counter.make("성인") }}
+        </div>
+        <br/>
+        <div class="counter">
+            {{ counter.make("성인",max=5,value=2) }}
+        </div>
+        <br/>
+        <div class="counter">
+            {{ counter.make("어린이",min=0,max=5,value=2) }}
+        </div>
+        <br/>
+        <div class="counter">
+            {{ counter.make("어린이",min=0,max=0,value=0) }}
+        </div>
+    </div>
+{%- endblock %}
+
+{% block script %}
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/underscore-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/dependency/scripts/plugins/counter.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('[data-js="counter"]').counter();
+      })
+    </script>
+{% endblock %}

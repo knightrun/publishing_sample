@@ -1,0 +1,102 @@
+{#
+
+		<!-- disable 사용시 json data 추가 -->
+		"disableJsName" : "disableDay",
+		"disableJsList" : [
+			{ "year" : "2018", "month" : "01", "day" : "10" }
+		]
+
+#}
+
+{#
+		{% if data.disableJsName and data.disableJsList %}
+			<script>
+	            var {{ data.disableJsName }} =[
+					{% for list in data.disableJsList %}
+	                {
+	                    year : "{{ list.year }}",
+	                    month : "{{ list.month }}",
+	                    day : "{{ list.day }}"
+	                }{% if not loop.last %},{% endif %}
+					{% endfor %}
+	            ];
+			</script>
+		{% endif %}
+#}
+
+
+{% macro default( data ) %}
+
+    {% set calendarData = assign({
+        class : ['calendar'],
+        title : '',
+        dataAttr : {
+            inline : false,
+            singleMonth : false,
+            language : "ko",
+            format : "YYYY-MM-DD"
+        }
+    },data) %}
+    {% set calendarData = assign(calendarData,{"dataAttr" : {title:calendarData.title} }) %}
+
+    <div
+            {{attr('class',calendarData) | safe}}
+            {#{{attr('title',calendarData) | safe}}#}
+            {{attr('dataAttr',calendarData) | safe}}
+            aria-live="polite" aria-atomic="true">
+        {{ caller() }}
+    </div>
+{% endmacro %}
+
+{% macro inline( data ) %}
+
+    {% set calendarData = assign({
+        type : 'hidden',
+        id : '',
+        class : ['calendar'],
+        title : '',
+        dataAttr : {
+            inline : true,
+            language : "ko",
+            format : "YYYY-MM-DD"
+        }
+    },data) %}
+
+    {% set calendarData = assign(calendarData,{"dataAttr" : {title:calendarData.title} }) %}
+
+    <div
+            {{attr('class',calendarData) | safe}}
+            {#{{attr('title',calendarData) | safe}}#}
+            {{attr('dataAttr',calendarData) | safe}}
+            aria-live="polite" aria-atomic="true">
+        <input
+                {{attr('type',calendarData) | safe}}
+                {{attr('id',calendarData) | safe}}
+                {{attr('inputDataAttr',calendarData) | safe}}>
+    </div>
+
+{% endmacro %}
+
+
+{% macro multi( data ) %}
+
+    {% set calendarData = assign({
+        class : ['calendar'],
+        title : '',
+        dataAttr : {
+            inline : false,
+            singleMonth : false,
+            multiInput : true,
+            language : "ko",
+            format : "YYYY-MM-DD"
+        }
+    },data) %}
+
+    <div
+            {{attr('class',calendarData) | safe}}
+            {#{{attr('title',calendarData) | safe}}#}
+            {{attr('dataAttr',calendarData) | safe}}
+            aria-live="polite" aria-atomic="true">
+        {{ caller() }}
+    </div>
+{% endmacro %}

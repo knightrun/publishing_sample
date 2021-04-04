@@ -1,0 +1,196 @@
+{% macro default( data ) %}
+	{% import "dependency/elements/cta/cta.html" as cta %}
+
+	{#  JSON
+
+        {
+            id : '',
+            title : '',
+            size : '1', // 1(소), 2(중), 3(대)    ex) modal--size1
+            class : ['modal'],
+            button : [
+                {
+                    type : 'button',
+                    id : '',
+                    class : [],
+                    text : '',
+                    title : '',
+                    value : '',
+                    disabled : '',
+                    dataAttr : {}
+                }
+            ]
+        }
+
+    #}
+
+	{%
+		set modal = assign({
+		id : '',
+		title : '',
+		size : '1',
+		class : ['c-modal'],
+		dataAttr : {},
+		button : []
+	}, data )
+	%}
+
+	{# 사이즈 추가  #}
+	{% set sizeClass = modal.class | pushIn('c-modal--size'+modal.size) %}
+
+	{# 버튼유무 체크 modal.has-button #}
+	{% if _.size(modal.button) %}
+		{% set mergeClass = modal.class | pushIn('has-button') %}
+
+		{# 버튼 기본 클래스 추가 #}
+		{% for button in modal.button %}
+			{% if _.isArray(button.class) %}
+				{% set addDefaultBtnClass = button.class | pushIn('c-modal__button') %}
+				{% elif _.isUndefined(button.class) %}
+				{% set button = assign(button,{"class" : ["c-modal__button"]}) %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
+	{# 모달 ID 유무 확인 #}
+	{% if _.isEmpty(modal.id) %}
+		{% set titleId = _.uniqueId('unique_id-') %}
+	{% else %}
+		{% set titleId = BEM(modal.id,'title') %}
+	{% endif %}
+
+	<!--
+		modal size class
+
+		c-modal--size1  // 소
+		c-modal--size2  // 중
+		c-modal--size3  // 대
+
+		예 ) <section id="id" class="c-modal ## 모달사이즈 클래스 ##" ~~~ >
+	 -->
+
+	<section {{ attr('id',modal) | safe }} {{ attr('class',modal) | safe }} {{ attr('dataAttr',modal) | safe }} tabindex="-1" role="dialog" aria-labelledby="{{ titleId }}">
+		<div class="c-modal__wrap" role="document">
+			<header class="c-modal__head">
+				<h1 class="c-modal__title" id="{{ titleId }}">{{ modal.title }}</h1>
+			</header>
+			<div class="c-modal__body" tabindex="-1">
+				<div class="c-modal__scroll">
+					<div class="c-modal__content">
+						{% if caller %}
+							{{ caller() }}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="c-modal__foot">
+				{% for button in modal.button %}
+					{{ cta.button( button ) }}
+				{% endfor %}
+			</div>
+			<button type="button" class="c-modal__close" data-dismiss="cancel"><span class="screen--out">레이어 닫기</span></button>
+		</div>
+	</section>
+{% endmacro %}
+
+
+
+
+{# 갤러리 #}
+{% macro gallery( data ) %}
+
+	{#  JSON
+
+		{
+			id : '',
+			title : '',
+			class : []
+		}
+
+	#}
+
+	{%
+		set modal = assign({
+		id : '',
+		title : '',
+		class : ['c-modal-gallery']
+	}, data )
+	%}
+
+
+	{# 모달 ID 유무 확인 #}
+	{% if _.isEmpty(modal.id) %}
+		{% set titleId = _.uniqueId('unique_id-') %}
+	{% else %}
+		{% set titleId = BEM(modal.id,'title') %}
+	{% endif %}
+
+	<section {{ attr('id',modal) | safe }} {{ attr('class',modal) | safe }} tabindex="-1" role="dialog" aria-labelledby="{{ titleId }}">
+		<div class="c-modal__wrap" role="document">
+			<header class="c-modal__head">
+				<h1 class="c-modal__title" id="{{ titleId }}">{{ modal.title }}</h1>
+			</header>
+			<div class="c-modal__body" tabindex="0">
+				<div class="c-modal__content">
+					{% if caller %}
+						{{ caller() }}
+					{% endif %}
+				</div>
+			</div>
+			<button type="button" class="c-modal__close" data-dismiss="cancel"><span class="screen--out">레이어 닫기</span></button>
+		</div>
+	</section>
+
+{% endmacro %}
+
+
+
+{# 비디오 #}
+{% macro video( data ) %}
+
+	{#  JSON
+
+		{
+			id : '',
+			title : '',
+			class : []
+		}
+
+	#}
+
+	{%
+		set modal = assign({
+		id : '',
+		title : '',
+		class : ['c-modal-video']
+	}, data )
+	%}
+
+
+	{# 모달 ID 유무 확인 #}
+	{% if _.isEmpty(modal.id) %}
+		{% set titleId = _.uniqueId('unique_id-') %}
+	{% else %}
+		{% set titleId = BEM(modal.id,'title') %}
+	{% endif %}
+
+	<section {{ attr('id',modal) | safe }} {{ attr('class',modal) | safe }} tabindex="-1" role="dialog" aria-labelledby="{{ titleId }}">
+		<div class="c-modal__wrap" role="document">
+			<header class="c-modal__head">
+				<h1 class="c-modal__title" id="{{ titleId }}">{{ modal.title }}</h1>
+			</header>
+			<div class="c-modal__body" tabindex="0">
+				<div class="c-modal__content">
+					<div class="c-modal__frame">
+						<iframe class="c-modal__iframe" src="about:blank" title="" frameborder="0" allowfullscreen></iframe>
+					</div>
+					{% if caller %}
+						{{ caller() }}
+					{% endif %}
+				</div>
+			</div>
+			<button type="button" class="c-modal__close" data-dismiss="cancel"><span class="screen--out">레이어 닫기</span></button>
+		</div>
+	</section>
+
+{% endmacro %}
